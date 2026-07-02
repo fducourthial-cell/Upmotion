@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UpMotion | Imagerie par Drone et Caméra</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Intégration de FontAwesome pour les petites icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Barre de navigation -->
+    <header>
+        <div class="navbar container">
+            <div class="logo">
+                <!-- Intégration de votre logo -->
+                <img src="ChatGPT Image 2 juil. 2026, 20_45_19.png" alt="UpMotion Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#galerie">Galerie</a></li>
+                    <li><a href="#contact" class="btn-nav">Contactez-nous</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section Héro (Accueil) -->
+    <section id="accueil" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content container">
+            <h1>Prenez de la hauteur</h1>
+            <p>De l'imagerie aérienne de haute précision par drone et caméra pour sublimer vos projets, événements et infrastructures.</p>
+            <div class="hero-buttons">
+                <a href="#galerie" class="btn-primary">Découvrir nos réalisations</a>
+                <a href="#contact" class="btn-secondary">Demander un devis</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Services -->
+    <section id="services" class="services container">
+        <h2 class="section-title">Nos Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fa-solid fa-camera-retro"></i>
+                <h3>Production Audiovisuelle</h3>
+                <p>Création de films promotionnels, suivi de chantiers et couverture d'événements avec une qualité cinématographique au sol comme dans les airs.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-mountain-sun"></i>
+                <h3>Photographie de Paysage</h3>
+                <p>Mise en valeur du patrimoine naturel, des domaines immobiliers et des infrastructures sous des angles uniques et spectaculaires.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-helicopter"></i>
+                <h3>Prestations Techniques</h3>
+                <p>Inspection de structures, cartographie et thermographie par drone adaptées aux exigences des professionnels.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Galerie (Drone & Paysages) -->
+    <section id="galerie" class="galerie">
+        <div class="container">
+            <h2 class="section-title">Le monde vu d'en haut</h2>
+        </div>
+        <div class="galerie-grid">
+            <div class="galerie-item">
+                <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=800&q=80" alt="Drone en vol au coucher du soleil">
+                <div class="item-overlay"><span>Technologie & Précision</span></div>
+            </div>
+            <div class="galerie-item">
+                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80" alt="Paysage de montagnes brumeuses">
+                <div class="item-overlay"><span>Grands Espaces</span></div>
+            </div>
+            <div class="galerie-item">
+                <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=800&q=80" alt="Vue aérienne d'une côte maritime">
+                <div class="item-overlay"><span>Perspectives Uniques</span></div>
+            </div>
+            <div class="galerie-item">
+                <img src="https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?auto=format&fit=crop&w=800&q=80" alt="Drone survolant une forêt d'automne">
+                <div class="item-overlay"><span>Cinématique</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="contact container">
+        <div class="contact-box">
+            <h2>Un projet en tête ?</h2>
+            <p>Partagez vos idées avec nous et obtenez un devis gratuit et personnalisé pour vos besoins en imagerie.</p>
+            <form class="contact-form">
+                <input type="text" placeholder="Votre nom" required>
+                <input type="email" placeholder="Votre adresse e-mail" required>
+                <textarea placeholder="Décrivez votre projet (type de prestation, lieu, date...)" rows="5" required></textarea>
+                <button type="submit" class="btn-primary">Envoyer le message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 UpMotion - Imagerie par drone et caméra. Tous droits réservés.</p>
+            <div class="socials">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
