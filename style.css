@@ -74,7 +74,7 @@ header {
 }
 
 .logo img {
-    height: 50px; /* Ajuste la taille du logo pour qu'il reste élégant */
+    height: 75px; /* Ajuste la taille du logo pour qu'il reste élégant */
     width: auto;
     display: block;
 }
