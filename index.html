@@ -1,3 +1,13 @@
+
+Conversation avec Gemini
+creer une page internet avec pour nom UpMotion et des image de drone et de paysage, je t'envoie le logo
+
+Voici une structure complète pour la page internet de UpMotion. J'ai extrait les codes couleurs de votre logo (le bleu dégradé et le gris anthracite très foncé/noir) pour créer un design moderne, épuré et parfaitement adapté à une activité d'imagerie par drone et caméra.
+
+Pour les visuels de drones et de paysages, j'ai utilisé des images libres de droits de haute qualité via Unsplash. Vous n'aurez qu'à remplacer la mention du logo par votre fichier ChatGPT Image 2 juil. 2026, 20_45_19.png dans votre dossier de projet.
+
+Code HTML (index.html)
+HTML
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -89,21 +99,14 @@
     </section>
 
     <!-- Section Contact -->
-   <section id="contact" class="contact container">
+    <section id="contact" class="contact container">
         <div class="contact-box">
             <h2>Un projet en tête ?</h2>
             <p>Partagez vos idées avec nous et obtenez un devis gratuit et personnalisé pour vos besoins en imagerie.</p>
-            
-            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
-                
-                <input type="hidden" name="access_key" value="8be19758-3cda-453e-a5c7-c02b48be96aa">
-                
-                <input type="hidden" name="subject" value="Nouveau message de UpMotion">
-
-                <input type="text" name="name" placeholder="Votre nom" required>
-                <input type="email" name="email" placeholder="Votre adresse e-mail" required>
-                <textarea name="message" placeholder="Décrivez votre projet (type de prestation, lieu, date...)" rows="5" required></textarea>
-                
+            <form class="contact-form">
+                <input type="text" placeholder="Votre nom" required>
+                <input type="email" placeholder="Votre adresse e-mail" required>
+                <textarea placeholder="Décrivez votre projet (type de prestation, lieu, date...)" rows="5" required></textarea>
                 <button type="submit" class="btn-primary">Envoyer le message</button>
             </form>
         </div>
@@ -123,3 +126,1503 @@
 
 </body>
 </html>
+Code CSS (style.css)
+CSS
+/* Définition des variables de couleur basées sur votre logo */
+:root {
+    --primary-blue: #1c52a3;
+    --light-blue: #2575fc;
+    --dark-slate: #1a2229;
+    --light-bg: #f8f9fa;
+    --white: #ffffff;
+    --text-muted: #6c757d;
+}
+
+/* Styles Généraux */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--dark-slate);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--light-blue));
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Header & Navigation */
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo img {
+    height: 50px; /* Ajuste la taille du logo pour qu'il reste élégant */
+    width: auto;
+    display: block;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+nav ul li a {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+nav ul li a:hover {
+    color: var(--primary-blue);
+}
+
+.btn-nav {
+    background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+    color: var(--white) !important;
+    padding: 10px 20px;
+    border-radius: 25px;
+}
+
+.btn-nav:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(28, 82, 163, 0.3);
+}
+
+/* Section Héro */
+.hero {
+    position: relative;
+    height: 80vh;
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 34, 41, 0.6); /* Assombrit le paysage en arrière-plan pour faire ressortir le texte */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(28, 82, 163, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--dark-slate);
+}
+
+/* Services */
+.services {
+    padding: 80px 0;
+}
+
+.services-grid {
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border-top: 4px solid transparent;
+    flex: 1;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-top: 4px solid var(--primary-blue);
+}
+
+.service-card i {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Galerie */
+.galerie {
+    padding: 80px 0 0 0;
+    background-color: var(--light-bg);
+}
+
+.galerie-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.galerie-item {
+    flex: 1 1 25%;
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+}
+
+.galerie-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(28, 82, 163, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.galerie-item:hover img {
+    transform: scale(1.1);
+}
+
+.galerie-item:hover .item-overlay {
+    opacity: 1;
+}
+
+/* Contact */
+.contact {
+    padding: 80px 0;
+}
+
+.contact-box {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-box h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.contact-box p {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: var(--primary-blue);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-slate);
+    color: var(--white);
+    padding: 30px 0;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.socials {
+    display: flex;
+    gap: 20px;
+    font-size: 1.2rem;
+}
+
+.socials a:hover {
+    color: var(--light-blue);
+}
+
+/* Responsive (Mobile) */
+@media (max-width: 768px) {
+    nav { display: none; } /* Pour simplifier sans JS, le menu se cache sur mobile */
+    .hero h1 { font-size: 2.5rem; }
+    .services-grid { flex-direction: column; }
+    .galerie-item { flex: 1 1 50%; }
+    .footer-content { flex-direction: column; gap: 15px; text-align: center; }
+}
+Comment l'utiliser :
+Créez un dossier nommé UpMotion sur votre ordinateur.
+
+Créez un fichier index.html et collez-y le premier bloc de code.
+
+Créez un fichier style.css dans le même dossier et collez-y le second bloc de code.
+
+Placez votre image de logo (renommée exactement en ChatGPT Image 2 juil. 2026, 20_45_19.png ou changez le nom dans le code HTML à la ligne 17) dans ce même dossier.
+
+Double-cliquez sur index.html pour ouvrir et admirer votre nouvelle page internet dans votre navigateur !
+
+comment créer un fichier index.html
+
+Créer votre premier fichier index.html est très simple et ne nécessite aucun logiciel payant. C'est le point de départ de n'importe quel site web.
+
+Voici la méthode la plus rapide, que vous soyez sur Windows ou Mac.
+
+Étape 1 : Ouvrir un éditeur de texte
+Pour commencer, vous devez utiliser un éditeur de texte brut (n'utilisez pas Microsoft Word ou Pages, car ils ajoutent du formatage caché).
+
+Sur Windows : Ouvrez le Bloc-notes (Notepad). Vous pouvez le chercher dans la barre de recherche Windows.
+
+Sur Mac : Ouvrez TextEdit. (Attention sur Mac : avant d'écrire, allez dans le menu Format > Convertir au format Texte Standard / Format texte).
+
+L'alternative idéale : Si vous comptez coder souvent, téléchargez un éditeur gratuit comme Visual Studio Code ou Notepad++.
+
+Étape 2 : Coller le code de base
+Copiez et collez la structure de base d'une page HTML dans votre éditeur :
+
+HTML
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon premier site</title>
+</head>
+<body>
+    <h1>Bienvenue sur mon site !</h1>
+    <p>Ce fichier fonctionne parfaitement.</p>
+</body>
+</html>
+Étape 3 : Enregistrer le fichier (L'étape cruciale)
+C'est ici qu'il faut être très attentif à l'extension du fichier.
+
+🔹 Sur Windows :
+Cliquez sur Fichier > Enregistrer sous...
+
+Choisissez le dossier où vous voulez mettre votre site (par exemple, un dossier "UpMotion").
+
+Important : Dans le menu déroulant Type, changez "Fichiers texte (.txt)" par Tous les fichiers (.*).
+
+Dans le champ Nom du fichier, tapez exactement : index.html
+
+Cliquez sur Enregistrer.
+
+🔸 Sur Mac :
+Cliquez sur Fichier > Enregistrer.
+
+Dans le champ Enregistrer sous, tapez : index.html
+
+Si TextEdit vous demande d'utiliser l'extension .txt, cliquez bien sur Utiliser .html.
+
+Étape 4 : Tester votre fichier
+Allez dans le dossier où vous avez enregistré le fichier.
+
+Vous devriez voir que l'icône du fichier est désormais celle de votre navigateur internet (Chrome, Edge, Safari ou Firefox).
+
+Double-cliquez dessus : votre page web s'ouvre localement dans votre navigateur !
+
+cela ne fonctionne pas, ça m'ouvre blocnote tout simplement
+
+Ah, le piège classique de Windows ! Ne vous inquiétez pas, c'est une erreur très courante.
+
+Ce qui s'est passé, c'est que Windows a probablement caché l'extension et a nommé votre fichier index.html.txt en arrière-plan. Pour lui, c'est donc toujours un fichier texte, ce qui explique pourquoi il s'ouvre avec le Bloc-notes.
+
+Voici comment régler ça en deux minutes chrono :
+
+La solution : Forcer la bonne extension
+Ouvrez votre Bloc-notes avec le code dedans.
+
+Cliquez sur Fichier > Enregistrer sous...
+
+Regardez la ligne Type (juste en dessous du nom du fichier). Cliquez sur le menu déroulant et changez "Fichiers texte (.txt)" par Tous les fichiers (.*). C'est cette étape qui empêche Windows d'ajouter sournoisement le ".txt" à la fin.
+
+Dans le nom du fichier, tapez à nouveau : index.html
+
+Cliquez sur Enregistrer.
+
+Alternative encore plus simple (si vous avez déjà le fichier) :
+Si vous voyez votre fichier dans votre dossier :
+
+Faites un clic droit sur votre fichier actuel.
+
+Choisissez Ouvrir avec > puis sélectionnez votre navigateur internet (Google Chrome, Microsoft Edge, ou Firefox).
+
+La page va s'ouvrir correctement dans votre navigateur !
+
+sort moi le code directement en format html
+
+Pour vous éviter toute erreur de manipulation ou de bloc-notes, j'ai directement généré le fichier complet pour vous.
+
+J'ai combiné le code HTML et tout le design (CSS) à l'intérieur de ce seul et unique fichier afin qu'il fonctionne instantanément dès que vous l'ouvrez.
+
+Votre fichier HTML est prêt :
+Icône HTML
+index
+ HTML 
+Ouvert
+
+Ce qu'il vous reste à faire :
+Téléchargez le fichier index.html ci-dessus.
+
+Mettez-le dans le même dossier que votre logo (l'image du logo doit obligatoirement s'appeler exactement : ChatGPT Image 2 juil. 2026, 20_45_19.png).
+
+Double-cliquez sur le fichier index.html téléchargé, il s'ouvrira directement dans votre navigateur web avec tout le design et les images !
+
+j'aimerais ajouter mon adresse mail dans contact pour que je puisse rececoir les message dans l'onglet contact
+
+Pour que le formulaire de contact fonctionne réellement et que vous receviez les messages directement sur votre boîte mail, le code HTML seul ne suffit pas. Le HTML permet uniquement d'afficher le formulaire à l'écran. Pour envoyer un e-mail, il faut un petit script (généralement en PHP) ou utiliser un service tiers gratuit.
+
+La méthode la plus simple et rapide (sans avoir à configurer un serveur complexe) est d'utiliser un service gratuit comme Formspree ou Web3Forms.
+
+Voici comment modifier votre fichier index.html pour recevoir les messages sur votre adresse e-mail via Web3Forms (qui est entièrement gratuit et ne demande pas d'inscription obligatoire pour commencer) :
+
+Étape 1 : Obtenir une clé d'accès (Access Key)
+Allez sur le site web3forms.com.
+
+Entrez votre adresse e-mail dans la case sur leur page d'accueil.
+
+Vous allez recevoir instantanément un e-mail contenant une longue suite de lettres et de chiffres (votre Access Key).
+
+Étape 2 : Modifier le code de votre formulaire
+Ouvrez votre fichier index.html (avec le Bloc-notes ou votre éditeur) et cherchez la ligne qui commence par <form class="contact-form" ...>.
+
+Remplacez tout le bloc de la section <section id="contact"> (de la ligne 306 à 316 environ) par le code suivant :
+
+HTML
+    <section id="contact" class="contact container">
+        <div class="contact-box">
+            <h2>Un projet en tête ?</h2>
+            <p>Partagez vos idées avec nous et obtenez un devis gratuit et personnalisé pour vos besoins en imagerie.</p>
+            
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                
+                <input type="hidden" name="access_key" value="VOTRE-CLE-ICI">
+                
+                <input type="hidden" name="subject" value="Nouveau message de UpMotion">
+
+                <input type="text" name="name" placeholder="Votre nom" required>
+                <input type="email" name="email" placeholder="Votre adresse e-mail" required>
+                <textarea name="message" placeholder="Décrivez votre projet (type de prestation, lieu, date...)" rows="5" required></textarea>
+                
+                <button type="submit" class="btn-primary">Envoyer le message</button>
+            </form>
+        </div>
+    </section>
+Étape 3 : Configurer votre clé
+Dans le code ci-dessus, remplacez le texte VOTRE-CLE-ICI par la clé que Web3Forms vous a envoyée par e-mail.
+
+Exemple : value="a1b2c3d4-e5f6-7890-..."
+
+Comment ça marche ensuite ?
+Enregistrez les modifications de votre fichier index.html.
+
+Ouvrez votre page dans votre navigateur.
+
+Remplissez le formulaire de test et cliquez sur Envoyer le message.
+
+Le site va envoyer les données à Web3Forms, qui va automatiquement vous les transférer sur l'adresse e-mail liée à votre clé d'accès !
+
+quand on clique sur le logo, que j'aimerais legerement plus gros, on retourne sur la page d'accueil
+
+Python
+html_content = """<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UpMotion | Imagerie par Drone et Caméra</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Définition des variables de couleur basées sur votre logo */
+        :root {
+            --primary-blue: #1c52a3;
+            --light-blue: #2575fc;
+            --dark-slate: #1a2229;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --text-muted: #6c757d;
+        }
+
+        /* Styles Généraux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-slate);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--light-blue));
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        /* LOGO MODIFIÉ : Taille augmentée à 65px (au lieu de 50px) */
+        .logo img {
+            height: 65px;
+            width: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.03); /* Léger effet de zoom au survol */
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+
+        .btn-nav {
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            color: var(--white) !important;
+            padding: 10px 20px;
+            border-radius: 25px;
+        }
+
+        .btn-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(28, 82, 163, 0.3);
+        }
+
+        /* Section Héro */
+        .hero {
+            position: relative;
+            height: 80vh;
+            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 34, 41, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(28, 82, 163, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--dark-slate);
+        }
+
+        /* Services */
+        .services {
+            padding: 80px 0;
+        }
+
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border-top: 4px solid transparent;
+            flex: 1 1 300px;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-top: 4px solid var(--primary-blue);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Galerie */
+        .galerie {
+            padding: 80px 0 0 0;
+            background-color: var(--light-bg);
+        }
+
+        .galerie-grid {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .galerie-item {
+            flex: 1 1 25%;
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .galerie-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(28, 82, 163, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .galerie-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .galerie-item:hover .item-overlay {
+            opacity: 1;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 80px 0;
+        }
+
+        .contact-box {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--primary-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-slate);
+            color: var(--white);
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .socials {
+            display: flex;
+            gap: 20px;
+            font-size: 1.2rem;
+        }
+
+        .socials a:hover {
+            color: var(--light-blue);
+        }
+
+        /* Responsive (Mobile) */
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .galerie-item { flex: 1 1 50%; }
+            .footer-content { flex-direction: column; gap: 15px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="navbar container">
+            <div class="logo">
+                <a href="#accueil">
+                    <img src="ChatGPT Image 2 juil. 2026, 20_45_19.png" alt="UpMotion Logo">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#galerie">Galerie</a></li>
+                    <li><a href="#contact" class="btn-nav">Contactez-nous</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="accueil" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content container">
+            <h1>Prenez de la hauteur</h1>
+            <p>De l'imagerie aérienne de haute précision par drone et caméra pour sublimer vos projets, événements et infrastructures.</p>
+            <div class="hero-buttons">
+                <a href="#galerie" class="btn-primary">Découvrir nos réalisations</a>
+                <a href="#contact" class="btn-secondary">Demander un devis</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services container">
+        <h2 class="section-title">Nos Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fa-solid fa-camera-retro"></i>
+                <h3>Production Audiovisuelle</h3>
+                <p>Création de films promotionnels, suivi de chantiers et couverture d'événements avec une qualité cinématographique au sol comme dans les airs.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-mountain-sun"></i>
+                <h3>Photographie de Paysage</h3>
+                <p>Mise en valeur du patrimoine naturel, des domaines immobiliers et des infrastructures sous des angles uniques et spectaculaires.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-helicopter"></i>
+                <h3>Prestations Techniques</h3>
+                <p>Inspection de structures, cartographie et thermographie par drone adaptées aux exigences des professionnels.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="galerie" class="galerie">
+        <div class="container">
+            <h2 class="section-title">Le monde vu d'en haut</h2>
+        </div>
+        <div class="galerie-grid">
+            <div class="galerie-item">
+                <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=800&q=80" alt="Drone en vol au coucher du soleil">
+                <div class="item-overlay"><span>Technologie & Précision</span></div>
+            </div>
+            <div class="galerie-item">
+                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80" alt="Paysage de montagnes brumeuses">
+                <div class="item-overlay"><span>Grands Espaces</span></div>
+            </div>
+            <div class="galerie-item">
+                <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=800&q=80" alt="Vue aérienne d'une côte maritime">
+                <div class="item-overlay"><span>Perspectives Uniques</span></div>
+            </div>
+            <div class="galerie-item">
+                <img src="https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?auto=format&fit=crop&w=800&q=80" alt="Drone survolant une forêt d'automne">
+                <div class="item-overlay"><span>Cinématique</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact container">
+        <div class="contact-box">
+            <h2>Un projet en tête ?</h2>
+            <p>Partagez vos idées avec nous et obtenez un devis gratuit et personnalisé pour vos besoins en imagerie.</p>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Message envoyé avec succès ! (Simulation)');">
+                <input type="text" placeholder="Votre nom" required>
+                <input type="email" placeholder="Votre adresse e-mail" required>
+                <textarea placeholder="Décrivez votre projet (type de prestation, lieu, date...)" rows="5" required></textarea>
+                <button type="submit" class="btn-primary">Envoyer le message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 UpMotion - Imagerie par drone et caméra. Tous droits réservés.</p>
+            <div class="socials">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>"""
+
+with open("index.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+C'est une excellente idée, c'est la norme ergonomique sur le web.
+Icône HTML
+index
+ HTML 
+Ouvert
+Icône HTML
+index
+ HTML 
+Ouvert
+
+J'ai mis à jour le code de votre fichier de deux façons :
+
+J'ai enveloppé le logo dans un lien hypertexte pointant vers #accueil. Désormais, un clic dessus fait défiler la page de manière fluide vers le haut.
+
+J'ai augmenté la hauteur d'affichage du logo à 65px (au lieu de 50px) dans les styles graphiques et ajouté un léger effet visuel fluide lorsqu'on passe la souris dessus.
+
+Voici le nouveau fichier mis à jour à télécharger :
+
+Pensez simplement à le remettre dans votre dossier à la place de l'ancien pour que le lien avec votre image de logo continue de fonctionner.
+
+
+
+
+Gemini est une IA et peut se tromper, y compris sur des personnes. Votre confidentialité et GeminiS'ouvre dans une nouvelle fenêtre
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UpMotion | Imagerie par Drone et Caméra</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Définition des variables de couleur basées sur votre logo */
+        :root {
+            --primary-blue: #1c52a3;
+            --light-blue: #2575fc;
+            --dark-slate: #1a2229;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --text-muted: #6c757d;
+        }
+
+        /* Styles Généraux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-slate);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--light-blue));
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        /* LOGO MODIFIÉ : Taille augmentée à 65px (au lieu de 50px) */
+        .logo img {
+            height: 65px;
+            width: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.03); /* Léger effet de zoom au survol */
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+
+        .btn-nav {
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            color: var(--white) !important;
+            padding: 10px 20px;
+            border-radius: 25px;
+        }
+
+        .btn-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(28, 82, 163, 0.3);
+        }
+
+        /* Section Héro */
+        .hero {
+            position: relative;
+            height: 80vh;
+            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 34, 41, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(28, 82, 163, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--dark-slate);
+        }
+
+        /* Services */
+        .services {
+            padding: 80px 0;
+        }
+
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border-top: 4px solid transparent;
+            flex: 1 1 300px;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-top: 4px solid var(--primary-blue);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Galerie */
+        .galerie {
+            padding: 80px 0 0 0;
+            background-color: var(--light-bg);
+        }
+
+        .galerie-grid {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .galerie-item {
+            flex: 1 1 25%;
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .galerie-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(28, 82, 163, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .galerie-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .galerie-item:hover .item-overlay {
+            opacity: 1;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 80px 0;
+        }
+
+        .contact-box {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--primary-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-slate);
+            color: var(--white);
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .socials {
+            display: flex;
+            gap: 20px;
+            font-size: 1.2rem;
+        }
+
+        .socials a:hover {
+            color: var(--light-blue);
+        }
+
+        /* Responsive (Mobile) */
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .galerie-item { flex: 1 1 50%; }
+            .footer-content { flex-direction: column; gap: 15px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre de navigation -->
+    <header>
+        <div class="navbar container">
+            <div class="logo">
+                <!-- LOGO CLIQUABLE VERS L'ACCUEIL -->
+                <a href="#accueil">
+                    <img src="ChatGPT Image 2 juil. 2026, 20_45_19.png" alt="UpMotion Logo">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#galerie">Galerie</a></li>
+                    <li><a href="#contact" class="btn-nav">Contactez-nous</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section Héro (Accueil) -->
+    <section id="accueil" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content container">
+            <h1>Prenez de la hauteur</h1>
+            <p>De l'imagerie aérienne de haute précision par drone et caméra pour sublimer vos projets, événements et infrastructures.</p>
+            <div class="hero-buttons">
+                <a href="#galerie" class="btn-primary">Découvrir nos réalisations</a>
+                <a href="#contact" class="btn-secondary">Demander un devis</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Services -->
+    <section id="services" class="services container">
+        <h2 class="section-title">Nos Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fa-solid fa-camera-retro"></i>
+                <h3>Production Audiovisuelle</h3>
+                <p>Création de films promotionnels, suivi de chantiers et couverture d'événements avec une qualité cinématographique au sol comme dans les airs.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-mountain-sun"></i>
+                <h3>Photographie de Paysage</h3>
+                <p>Mise en valeur du patrimoine naturel, des domaines immobiliers et des infrastructures sous des angles uniques et spectaculaires.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-helicopter"></i>
+                <h3>Prestations Techniques</h3>
+                <p>Inspection de structures, cartographie et thermographie par drone adaptées aux exigences des professionnels.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Galerie (Drone & Paysages) -->
+    <section id="galerie" class="galerie">
+        <div class="container">
+            <h2 class="section-title">Le monde vu d'en haut</h2>
+        </div>
+        <div class="galerie-grid">
+            <div class="galerie-item">
+                <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=800&q=80" alt="Drone en vol au coucher du soleil">
+                <div class="item-overlay"><span>Technologie & Précision</span></div>
+            </div>
+            <div class="galerie-item">
+                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80" alt="Paysage de montagnes brumeuses">
+                <div class="item-overlay"><span>Grands Espaces</span></div>
+            </div>
+            <div class="galerie-item">
+                <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=800&q=80" alt="Vue aérienne d'une côte maritime">
+                <div class="item-overlay"><span>Perspectives Uniques</span></div>
+            </div>
+            <div class="galerie-item">
+                <img src="https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?auto=format&fit=crop&w=800&q=80" alt="Drone survolant une forêt d'automne">
+                <div class="item-overlay"><span>Cinématique</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="contact container">
+        <div class="contact-box">
+            <h2>Un projet en tête ?</h2>
+            <p>Partagez vos idées avec nous et obtenez un devis gratuit et personnalisé pour vos besoins en imagerie.</p>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Message envoyé avec succès ! (Simulation)');">
+                <input type="text" placeholder="Votre nom" required>
+                <input type="email" placeholder="Votre adresse e-mail" required>
+                <textarea placeholder="Décrivez votre projet (type de prestation, lieu, date...)" rows="5" required></textarea>
+                <button type="submit" class="btn-primary">Envoyer le message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 UpMotion - Imagerie par drone et caméra. Tous droits réservés.</p>
+            <div class="socials">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+index.html
+Affichage de index.html.
