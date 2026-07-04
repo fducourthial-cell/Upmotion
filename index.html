@@ -502,20 +502,50 @@
     </section>
 
     <!-- Section Contact -->
+   
+    <!-- Section Contact -->
     <section id="contact" class="contact container">
         <div class="contact-box">
             <h2>Un projet en tête ?</h2>
             <p>Partagez vos idées avec nous et obtenez un devis gratuit et personnalisé pour vos besoins en imagerie.</p>
             
-            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" style="text-align: left;">
+                
+                <!-- Votre clé Web3Forms existante -->
                 <input type="hidden" name="access_key" value="8be19758-3cda-453e-a5c7-c02b48be96aa">
                 <input type="hidden" name="subject" value="Nouveau message de UpMotion">
 
-                <input type="text" name="name" placeholder="Votre nom" required>
-                <input type="email" name="email" placeholder="Votre adresse e-mail" required>
-                <textarea name="message" placeholder="Décrivez votre projet (type de prestation, lieu, date...)" rows="5" required></textarea>
+                <!-- Champ Nom -->
+                <label style="font-weight: 600; margin-bottom: 5px; display: block;">Votre Nom / Entreprise :</label>
+                <input type="text" name="name" placeholder="Votre nom" required style="margin-bottom: 15px;">
                 
-                <button type="submit" class="btn-primary">Envoyer le message</button>
+                <!-- Champ E-mail -->
+                <label style="font-weight: 600; margin-bottom: 5px; display: block;">Votre adresse e-mail :</label>
+                <input type="email" name="email" placeholder="Votre adresse e-mail" required style="margin-bottom: 15px;">
+                
+                <!-- Sélection du Service -->
+                <label style="font-weight: 600; margin-bottom: 8px; display: block;">Service demandé :</label>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
+                    <label style="background: var(--light-bg); padding: 10px 15px; border-radius: 5px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-weight: 500;">
+                        <input type="radio" name="service" value="Événementiel" required style="width: auto; margin: 0;"> Événementiel
+                    </label>
+                    <label style="background: var(--light-bg); padding: 10px 15px; border-radius: 5px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-weight: 500;">
+                        <input type="radio" name="service" value="Tourisme" style="width: auto; margin: 0;"> Tourisme
+                    </label>
+                    <label style="background: var(--light-bg); padding: 10px 15px; border-radius: 5px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-weight: 500;">
+                        <input type="radio" name="service" value="Immobilier" style="width: auto; margin: 0;"> Immobilier
+                    </label>
+                </div>
+
+                <!-- Sélection de la Date (Calendrier) -->
+                <label style="font-weight: 600; margin-bottom: 5px; display: block;">Date souhaitée de la prestation :</label>
+                <input type="date" name="date_prestation" required style="margin-bottom: 20px; font-family: inherit;">
+
+                <!-- Cadre Commentaire / Description du projet -->
+                <label style="font-weight: 600; margin-bottom: 5px; display: block;">Détails de votre projet :</label>
+                <textarea name="message" placeholder="Décrivez votre projet (lieu exact, durée, attentes particulières...)" rows="5" required style="margin-bottom: 20px;"></textarea>
+                
+                <button type="submit" class="btn-primary" style="width: 100%;">Envoyer le message</button>
             </form>
         </div>
     </section>
