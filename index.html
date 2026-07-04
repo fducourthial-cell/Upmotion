@@ -350,20 +350,23 @@
         }
 
         .socials {
-            display: flex;
-            gap: 20px;
-            font-size: 1.2rem;
-        }
+    display: flex;
+    gap: 20px;
+    font-size: 1.2rem;
+}
 
-        .socials a.IG:hover {
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .socials a.YT:hover {
-            color: #FF0000; 
-        }
+/* Effet sur l'icône Instagram au survol (Dégradé officiel) */
+.socials a.IG:hover i {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    display: inline-block;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Effet sur l'icône YouTube au survol (Rouge propre) */
+.socials a.YT:hover {
+    color: #FF0000;
+}
 
         /* Responsive (Mobile) */
         @media (max-width: 768px) {
