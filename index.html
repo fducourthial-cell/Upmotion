@@ -92,7 +92,7 @@
         nav ul {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 25px;
         }
 
         nav ul li a {
@@ -121,15 +121,14 @@
         }
 
         .hero {
-    position: relative;
-    height: 80vh;
-    background: url('accueil1.png') no-repeat center center/cover;
-    display: flex;
-    align-items: center;
-    color: var(--white);
-    text-align: center;
-    scroll-margin-top: 95px; /* Aligne parfaitement la section sous la barre de navigation */
-}
+            position: relative;
+            height: 80vh;
+            background: url('images/accueil1.png') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+        }
 
         .hero-overlay {
             position: absolute;
@@ -239,10 +238,9 @@
             font-size: 0.95rem;
         }
 
-        /* Style Lecteur Vidéo */
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* Ratio 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             max-width: 100%;
@@ -333,12 +331,11 @@
 </head>
 <body>
 
-    <!-- Barre de navigation -->
     <header>
         <div class="navbar container">
             <div class="logo">
                 <a href="#accueil">
-                    <img src="Logo UM.png" alt="UpMotion Logo">
+                    <img src="images/Logo UM.png" alt="UpMotion Logo">
                 </a>
             </div>
             <nav>
@@ -346,6 +343,7 @@
                     <li><a href="#accueil">Accueil</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="reglementation.html">Réglementation</a></li>
                     <li><a href="#materiels">Matériels</a></li>
                     <li><a href="#contact" class="btn-nav">Contactez-nous</a></li>
                 </ul>
@@ -353,7 +351,6 @@
         </div>
     </header>
 
-    <!-- Section Héro (Accueil) -->
     <section id="accueil" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content container">
@@ -366,7 +363,6 @@
         </div>
     </section>
 
-    <!-- Section Services -->
     <section id="services" class="services container">
         <h2 class="section-title">Nos Services</h2>
         <div class="services-grid">
@@ -388,16 +384,13 @@
         </div>
     </section>
 
-    <!-- NOUVELLE SECTION : Vidéo Vitrine intégrée directement -->
     <section id="video-vitrine" class="container" style="padding: 40px 0 80px 0;">
         <h2 class="section-title">Découvrez notre Showreel</h2>
         <div class="video-container">
-            <!-- Intégration propre de votre vidéo YouTube en mode embarqué (embed) -->
             <iframe src="https://www.youtube.com/embed/jHCxGhSWiu4" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
     </section>
 
-    <!-- Section Matériels -->
     <section id="materiels" class="container" style="padding: 80px 0; border-top: 1px solid #eee;">
         <h2 class="section-title">Mon Matériel</h2>
         <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: -20px auto 40px;">
@@ -433,7 +426,6 @@
         </div>
     </section>
 
-    <!-- Section Contact -->
     <section id="contact" class="contact container">
         <div class="contact-box">
             <h2>Un projet en tête ?</h2>
@@ -473,7 +465,6 @@
         </div>
     </section>
 
-    <!-- Pied de page -->
     <footer>
         <div class="container footer-content">
             <p>&copy; 2026 UpMotion - Imagerie par drone et caméra. Tous droits réservés.</p>
