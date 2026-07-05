@@ -217,11 +217,20 @@ ul {
             </p>
         </div>
 
-        <div class="info-box" style="border-left-color: #e67e22;">
+       <div class="info-box" style="border-left-color: #e67e22;">
             <h3><i class="fa-solid fa-map-location-dot"></i> Carte des restrictions UAS (Catégorie Ouverte)</h3>
-            <p>
-                Consultez ci-dessous la carte officielle Géoportail interactive. Elle recense les hauteurs maximales de vol autorisées pour les aéronefs sans équipage à bord (drones) en France. Les zones rouges représentent des interdictions strictes de vol en catégorie ouverte.
+            <p style="margin-bottom: 15px;">
+                Consultez ci-dessous la carte officielle interactive. Elle recense les hauteurs maximales de vol autorisées pour les drones en France. Les zones rouges représentent des interdictions strictes.
             </p>
+            <!-- BOUTON DE SECOURS DIRECT : Indispensable si l'iframe bloque sur certains navigateurs -->
+            <a href="https://www.geoportail.gouv.fr/donnees/restrictions-uas-categorie-ouverte-et-aeromodelisme" target="_blank" class="btn-primary" style="display: inline-block; padding: 10px 20px; font-size: 0.9rem; border-radius: 5px; margin-top: 5px;">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Ouvrir la carte officielle sur Géoportail
+            </a>
+        </div>
+
+        <!-- 🗺️ INTÉGRATION DE LA CARTE GÉOPORTAIL CORRIGÉE -->
+        <div class="map-container">
+            <iframe src="https://www.geoportail.gouv.fr/embed/visu.html?c=2.3488,48.8566&z=6&l=GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN-EXpress::GEOPORTAIL:OGC:WMTS(1)+RESTRICTIONS_POUR_DRONES_DE_LOISIR::GEOPORTAIL:OGC:WMTS(0.7)&permalink=no" allowfullscreen></iframe>
         </div>
 
         <div class="map-container">
