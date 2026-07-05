@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UpMotion | Réglementation & Restrictions UAS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1c52a3;
+            --light-blue: #2575fc;
+            --dark-slate: #1a2229;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --text-muted: #6c757d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-slate);
+            line-height: 1.6;
+            background-color: var(--light-bg);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo img {
+            height: 65px;
+            width: auto;
+            display: block;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--primary-blue);
+        }
+
+        .btn-nav {
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            color: var(--white) !important;
+            padding: 10px 20px;
+            border-radius: 25px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 40px 0 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .reglementation-section {
+            padding: 20px 0 60px;
+            flex: 1;
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        /* Conteneur pour intégrer la carte Géoportail nativement */
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-top: 30px;
+            background: #e5e3df;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .info-box {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid var(--primary-blue);
+        }
+
+        .info-box h3 {
+            margin-bottom: 10px;
+            color: var(--dark-slate);
+        }
+
+        .info-box p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            background-color: var(--dark-slate);
+            color: var(--white);
+            padding: 30px 0;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .socials {
+            display: flex;
+            gap: 20px;
+            font-size: 1.2rem;
+        }
+
+        .socials a:hover { color: var(--light-blue); }
+        .socials a.YT:hover { color: #FF0000; }
+        .socials a.IG:hover i {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            display: inline-block;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .map-container { height: 400px; }
+            .footer-content { flex-direction: column; gap: 15px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="navbar container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/Logo UM.png" alt="UpMotion Logo">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="reglementation.html" class="active">Réglementation</a></li>
+                    <li><a href="index.html#materiels">Matériels</a></li>
+                    <li><a href="index.html#contact" class="btn-nav">Contactez-nous</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container reglementation-section">
+        <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Retour à l'accueil</a>
+        <h1 class="section-title">Cadre Réglementaire</h1>
+
+        <div class="info-box">
+            <h3><i class="fa-solid fa-shield-halved"></i> Sécurité et Conformité des vols</h3>
+            <p>
+                Chez <strong>UpMotion</strong>, la sécurité est notre priorité absolue. Chaque mission est préparée minutieusement en vérifiant les espaces aériens, les restrictions locales et les protocoles nécessaires (zones peuplées, zones CTR d'aéroports, espaces militaires réglementés). Nous opérons en parfaite conformité avec la réglementation de la DGAC.
+            </p>
+        </div>
+
+        <div class="info-box" style="border-left-color: #e67e22;">
+            <h3><i class="fa-solid fa-map-location-dot"></i> Carte des restrictions UAS (Catégorie Ouverte)</h3>
+            <p>
+                Consultez ci-dessous la carte officielle Géoportail interactive. Elle recense les hauteurs maximales de vol autorisées pour les aéronefs sans équipage à bord (drones) en France. Les zones rouges représentent des interdictions strictes de vol en catégorie ouverte.
+            </p>
+        </div>
+
+        <div class="map-container">
+            <iframe src="https://www.geoportail.gouv.fr/embed/visu.html?c=2.3488,48.8566&z=6&l=GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN-EXpress::GEOPORTAIL:OGC:WMTS(1)+RESTRICTIONS_POUR_DRONES_DE_LOISIR::GEOPORTAIL:OGC:WMTS(0.7)&permalink=no" allowfullscreen></iframe>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 UpMotion - Imagerie par drone et caméra. Tous droits réservés.</p>
+            <div class="socials">
+                <a href="https://www.instagram.com/upmotion_studio/" class="IG" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/watch?v=jHCxGhSWiu4" class="YT" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
