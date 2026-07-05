@@ -64,7 +64,7 @@
         nav ul {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 25px;
         }
 
         nav ul li a {
@@ -91,7 +91,6 @@
             letter-spacing: 1px;
         }
 
-        /* Styles des Catégories de la Galerie */
         .galerie-section {
             padding: 40px 0 80px;
         }
@@ -137,7 +136,6 @@
             text-align: center;
         }
 
-        /* Bouton Retour */
         .btn-back {
             display: inline-block;
             margin-bottom: 20px;
@@ -182,12 +180,11 @@
 </head>
 <body>
 
-    <!-- Barre de navigation -->
     <header>
         <div class="navbar container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="ChatGPT Image 2 juil. 2026, 20_45_19.png" alt="UpMotion Logo">
+                    <img src="images/Logo UM.png" alt="UpMotion Logo">
                 </a>
             </div>
             <nav>
@@ -195,6 +192,7 @@
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="index.html#services">Services</a></li>
                     <li><a href="galerie.html" class="active">Galerie</a></li>
+                    <li><a href="reglementation.html">Réglementation</a></li>
                     <li><a href="index.html#materiels">Matériels</a></li>
                     <li><a href="index.html#contact" class="btn-nav">Contactez-nous</a></li>
                 </ul>
@@ -202,52 +200,42 @@
         </div>
     </header>
 
-    <!-- Zone Contenu Galerie -->
     <main class="container galerie-section">
         <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Retour à l'accueil</a>
         <h1 class="section-title">Galerie Medias</h1>
 
-        <!-- 📸 SOUS-SECTION : PHOTOS (Drone & Paysages) -->
         <h2 class="galerie-subtitle"><i class="fa-solid fa-camera"></i> Photos Aériennes & Paysages</h2>
         <div class="grid-medias">
             <div class="media-box">
-                <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=600&q=80" alt="Drone coucher de soleil">
+                <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=600&q=80" alt="Drone littoral">
                 <div class="media-info">Littoral au crépuscule</div>
             </div>
             <div class="media-box">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80" alt="Montagnes">
+                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80" alt="Montagnes brumeuses">
                 <div class="media-info">Sommets et brume</div>
-            </div>
-            <div class="media-box">
-                <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=600&q=80" alt="Côte marine">
-                <div class="media-info">Perspectives Maritimes</div>
             </div>
         </div>
 
-        <!-- 🎥 SOUS-SECTION : VIDÉOS -->
         <h2 class="galerie-subtitle"><i class="fa-solid fa-video"></i> Réalisations Vidéos</h2>
         <div class="grid-medias">
             <div class="media-box">
-                <!-- Espace prêt pour accueillir vos futures vidéos .mp4 locales ou liens -->
                 <video controls poster="https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?auto=format&fit=crop&w=600&q=80">
-                    <source src="votre-video.mp4" type="video/mp4">
+                    <source src="images/votre-video.mp4" type="video/mp4">
                     Votre navigateur ne supporte pas la lecture de vidéos.
                 </video>
-                <div class="media-info">Exemple de plan vidéo dynamique</div>
+                <div class="media-info">Exemple de vidéo locale</div>
             </div>
         </div>
 
-        <!-- 🔄 SOUS-SECTION : PHOTOS 360° -->
         <h2 class="galerie-subtitle"><i class="fa-solid fa-rotate"></i> Panoramas & Photos 360°</h2>
         <div class="grid-medias">
             <div class="media-box">
                 <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Aperçu 360">
-                <div class="media-info">Bientôt : Visites virtuelles et panoramas 360°</div>
+                <div class="media-info">Espace Visites Virtuelles et Panoramas 360°</div>
             </div>
         </div>
     </main>
 
-    <!-- Pied de page -->
     <footer>
         <div class="container footer-content">
             <p>&copy; 2026 UpMotion - Imagerie par drone et caméra. Tous droits réservés.</p>
