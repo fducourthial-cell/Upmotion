@@ -6,7 +6,6 @@
     <title>UpMotion | Imagerie par Drone et Caméra 360°</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Définition des variables de couleur basées sur votre logo */
         :root {
             --primary-blue: #1c52a3;
             --light-blue: #2575fc;
@@ -16,7 +15,6 @@
             --text-muted: #6c757d;
         }
 
-        /* Styles Généraux */
         * {
             margin: 0;
             padding: 0;
@@ -65,7 +63,6 @@
             border-radius: 2px;
         }
 
-        /* Header & Navigation - Mis en blanc pur opaque */
         header {
             background-color: var(--white);
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -81,7 +78,6 @@
             padding: 15px 0;
         }
 
-        /* LOGO MODIFIÉ : Taille augmentée à 65px */
         .logo img {
             height: 65px;
             width: auto;
@@ -90,7 +86,7 @@
         }
 
         .logo img:hover {
-            transform: scale(1.1); /* Léger effet de zoom au survol */
+            transform: scale(1.03);
         }
 
         nav ul {
@@ -120,12 +116,10 @@
             box-shadow: 0 4px 15px rgba(28, 82, 163, 0.3);
         }
 
-        /* GESTION DE L'ANCRAGE : Ajustement de l'arrêt du défilement pour toutes les sections */
-        #accueil, #services, #galerie, #materiels, #contact {
-            scroll-margin-top: 95px; /* Hauteur de la barre de navigation pour un calage parfait */
+        #accueil, #services, #video-vitrine, #materiels, #contact {
+            scroll-margin-top: 95px;
         }
 
-        /* Section Héro */
         .hero {
             position: relative;
             height: 80vh;
@@ -200,7 +194,6 @@
             color: var(--dark-slate);
         }
 
-        /* Services */
         .services {
             padding: 80px 0;
         }
@@ -245,56 +238,27 @@
             font-size: 0.95rem;
         }
 
-        /* Galerie */
-        .galerie {
-            padding: 80px 0 0 0;
-            background-color: var(--light-bg);
-        }
-
-        .galerie-grid {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .galerie-item {
-            flex: 1 1 25%;
+        /* Style Lecteur Vidéo */
+        .video-container {
             position: relative;
+            padding-bottom: 56.25%; /* Ratio 16:9 */
+            height: 0;
             overflow: hidden;
-            height: 300px;
+            max-width: 100%;
+            background: #000;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
 
-        .galerie-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .item-overlay {
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(28, 82, 163, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--white);
-            font-weight: 600;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            border: 0;
         }
 
-        .galerie-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .galerie-item:hover .item-overlay {
-            opacity: 1;
-        }
-
-        /* Contact */
         .contact {
             padding: 80px 0;
         }
@@ -303,16 +267,6 @@
             max-width: 600px;
             margin: 0 auto;
             text-align: center;
-        }
-
-        .contact-box h2 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-
-        .contact-box p {
-            color: var(--text-muted);
-            margin-bottom: 30px;
         }
 
         .contact-form {
@@ -335,7 +289,6 @@
             border-color: var(--primary-blue);
         }
 
-        /* Footer */
         footer {
             background-color: var(--dark-slate);
             color: var(--white);
@@ -350,29 +303,29 @@
         }
 
         .socials {
-    display: flex;
-    gap: 20px;
-    font-size: 1.2rem;
-}
+            display: flex;
+            gap: 20px;
+            font-size: 1.2rem;
+        }
 
-/* Effet sur l'icône Instagram au survol (Dégradé officiel) */
-.socials a.IG:hover i {
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    display: inline-block;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+        .socials a:hover {
+            color: var(--light-blue);
+        }
 
-/* Effet sur l'icône YouTube au survol (Rouge propre) */
-.socials a.YT:hover {
-    color: #FF0000;
-}
+        .socials a.IG:hover i {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            display: inline-block;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .socials a.YT:hover {
+            color: #FF0000; 
+        }
 
-        /* Responsive (Mobile) */
         @media (max-width: 768px) {
             nav { display: none; }
             .hero h1 { font-size: 2.5rem; }
-            .galerie-item { flex: 1 1 50%; }
             .footer-content { flex-direction: column; gap: 15px; text-align: center; }
         }
     </style>
@@ -383,7 +336,6 @@
     <header>
         <div class="navbar container">
             <div class="logo">
-                <!-- LOGO CLIQUABLE VERS L'ACCUEIL -->
                 <a href="#accueil">
                     <img src="ChatGPT Image 2 juil. 2026, 20_45_19.png" alt="UpMotion Logo">
                 </a>
@@ -392,8 +344,8 @@
                 <ul>
                     <li><a href="#accueil">Accueil</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#galerie">Galerie</a></li>
-                    <!-- CORRECTION DE LA CASSE ICI : #materiels en minuscules -->
+                    <!-- LE LIEN REDIRIGE MAINTENANT VERS LA NOUVELLE PAGE GALERIE -->
+                    <li><a href="galerie.html">Galerie</a></li>
                     <li><a href="#materiels">Matériels</a></li>
                     <li><a href="#contact" class="btn-nav">Contactez-nous</a></li>
                 </ul>
@@ -408,7 +360,7 @@
             <h1>Prenez de la hauteur</h1>
             <p>De l'imagerie aérienne de haute précision par drone et caméra 360° pour sublimer vos projets, événements et infrastructures.</p>
             <div class="hero-buttons">
-                <a href="#galerie" class="btn-primary">Découvrir nos réalisations</a>
+                <a href="galerie.html" class="btn-primary">Découvrir la Galerie</a>
                 <a href="#contact" class="btn-secondary">Demander un devis</a>
             </div>
         </div>
@@ -436,40 +388,22 @@
         </div>
     </section>
 
-    <!-- Section Galerie (Drone & Paysages) -->
-    <section id="galerie" class="galerie">
-        <div class="container">
-            <h2 class="section-title">Le monde vu d'en haut</h2>
-        </div>
-        <div class="galerie-grid">
-            <div class="galerie-item">
-                <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=800&q=80" alt="Drone en vol au coucher du soleil">
-                <div class="item-overlay"><span>Technologie & Précision</span></div>
-            </div>
-            <div class="galerie-item">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80" alt="Paysage de montagnes brumeuses">
-                <div class="item-overlay"><span>Grands Espaces</span></div>
-            </div>
-            <div class="galerie-item">
-                <img src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=800&q=80" alt="Vue aérienne d'une côte maritime">
-                <div class="item-overlay"><span>Perspectives Uniques</span></div>
-            </div>
-            <div class="galerie-item">
-                <img src="https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?auto=format&fit=crop&w=800&q=80" alt="Drone survolant une forêt d'automne">
-                <div class="item-overlay"><span>Cinématique</span></div>
-            </div>
+    <!-- NOUVELLE SECTION : Vidéo Vitrine intégrée directement -->
+    <section id="video-vitrine" class="container" style="padding: 40px 0 80px 0;">
+        <h2 class="section-title">Découvrez notre Showreel</h2>
+        <div class="video-container">
+            <!-- Intégration propre de votre vidéo YouTube en mode embarqué (embed) -->
+            <iframe src="https://www.youtube.com/embed/jHCxGhSWiu4" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
     </section>
 
     <!-- Section Matériels -->
-    <section id="materiels" class="container" style="padding: 80px 0;">
+    <section id="materiels" class="container" style="padding: 80px 0; border-top: 1px solid #eee;">
         <h2 class="section-title">Mon Matériel</h2>
         <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: -20px auto 40px;">
             Un équipement professionnel de pointe pour garantir des images d'une qualité exceptionnelle et adaptées à toutes les situations.
         </p>
         <div class="services-grid" style="display: flex; flex-wrap: wrap; gap: 30px;">
-            
-            <!-- Carte DJI Mini 3 -->
             <div class="service-card" style="flex: 1 1 45%; text-align: left; padding: 25px; display: flex; flex-direction: column;">
                 <div style="width: 100%; height: 250px; background-color: #f1f3f5; border-radius: 5px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; overflow: hidden;">
                     <img src="https://se-cdn.djiits.com/tpc/uploads/spu/cover/90ab8aaf5b320cfd7a4d0bf399ff2f6b@ultra.png" alt="Drone DJI Mini 3" style="max-width: 100%; max-height: 100%; object-fit: contain;">
@@ -483,7 +417,6 @@
                 </ul>
             </div>
 
-            <!-- Carte Insta360 X2 -->
             <div class="service-card" style="flex: 1 1 45%; text-align: left; padding: 25px; display: flex; flex-direction: column;">
                 <div style="width: 100%; height: 250px; background-color: #f1f3f5; border-radius: 5px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; overflow: hidden;">
                     <img src="https://www.studiosport.fr/upload/image/insta360-one-x2--p-image-281146-grande.jpg" alt="Caméra Insta360 X2" style="max-width: 100%; max-height: 100%; object-fit: contain;">
@@ -497,12 +430,9 @@
                     <li><strong>Polyvalence :</strong> Idéal pour l'immobilier virtuel et l'action</li>
                 </ul>
             </div>
-
         </div>
     </section>
 
-    <!-- Section Contact -->
-   
     <!-- Section Contact -->
     <section id="contact" class="contact container">
         <div class="contact-box">
@@ -510,20 +440,15 @@
             <p>Partagez vos idées avec nous et obtenez un devis gratuit et personnalisé pour vos besoins en imagerie.</p>
             
             <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" style="text-align: left;">
-                
-                <!-- Votre clé Web3Forms existante -->
                 <input type="hidden" name="access_key" value="8be19758-3cda-453e-a5c7-c02b48be96aa">
                 <input type="hidden" name="subject" value="Nouveau message de UpMotion">
 
-                <!-- Champ Nom -->
                 <label style="font-weight: 600; margin-bottom: 5px; display: block;">Votre Nom / Entreprise :</label>
                 <input type="text" name="name" placeholder="Votre nom" required style="margin-bottom: 15px;">
                 
-                <!-- Champ E-mail -->
                 <label style="font-weight: 600; margin-bottom: 5px; display: block;">Votre adresse e-mail :</label>
                 <input type="email" name="email" placeholder="Votre adresse e-mail" required style="margin-bottom: 15px;">
                 
-                <!-- Sélection du Service -->
                 <label style="font-weight: 600; margin-bottom: 8px; display: block;">Service demandé :</label>
                 <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
                     <label style="background: var(--light-bg); padding: 10px 15px; border-radius: 5px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-weight: 500;">
@@ -537,13 +462,11 @@
                     </label>
                 </div>
 
-                <!-- Sélection de la Date (Calendrier) -->
                 <label style="font-weight: 600; margin-bottom: 5px; display: block;">Date souhaitée de la prestation :</label>
                 <input type="date" name="date_prestation" required style="margin-bottom: 20px; font-family: inherit;">
 
-                <!-- Cadre Commentaire / Description du projet -->
                 <label style="font-weight: 600; margin-bottom: 5px; display: block;">Détails de votre projet :</label>
-                <textarea name="message" placeholder="Décrivez votre projet (lieu exact, durée, attentes particulières...)" rows="5" required style="margin-bottom: 20px;"></textarea>
+                <textarea name="message" placeholder="Décrivez votre projet..." rows="5" required style="margin-bottom: 20px;"></textarea>
                 
                 <button type="submit" class="btn-primary" style="width: 100%;">Envoyer le message</button>
             </form>
