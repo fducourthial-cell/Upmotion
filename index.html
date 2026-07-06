@@ -76,6 +76,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 0;
+            position: relative;
         }
 
         .logo img {
@@ -114,6 +115,11 @@
         .btn-nav:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(28, 82, 163, 0.3);
+        }
+
+        /* Masquage des éléments du menu mobile par défaut sur PC */
+        .menu-toggle, .menu-icon {
+            display: none;
         }
 
         #accueil, #services, #video-vitrine, #materiels, #contact {
@@ -322,8 +328,50 @@
             color: #FF0000; 
         }
 
+        /* RESPONSIVE SMARTPHONE REVISITÉ (Menu Tactile CSS) */
         @media (max-width: 768px) {
-            nav { display: none; }
+            .menu-icon {
+                display: block;
+                font-size: 1.8rem;
+                color: var(--dark-slate);
+                cursor: pointer;
+                z-index: 1001;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-in-out;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+                align-items: flex-start;
+            }
+
+            nav ul li {
+                width: 100%;
+            }
+
+            nav ul li a {
+                display: block;
+                width: 100%;
+                padding: 5px 0;
+            }
+
+            /* Logique CSS magique pour déployer le menu au clic sur l'icône */
+            .menu-toggle:checked ~ nav {
+                max-height: 350px; /* Déploie le menu mobile */
+            }
+
             .hero h1 { font-size: 2.5rem; }
             .footer-content { flex-direction: column; gap: 15px; text-align: center; }
         }
@@ -331,6 +379,7 @@
 </head>
 <body>
 
+    <!-- Barre de navigation -->
     <header>
         <div class="navbar container">
             <div class="logo">
@@ -338,6 +387,11 @@
                     <img src="Logo UM.png" alt="UpMotion Logo">
                 </a>
             </div>
+
+            <!-- BOUTONS CACHÉS POUR LA LOGIQUE MOBILE SANS JAVASCRIPT -->
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="menu-icon"><i class="fa-solid fa-bars"></i></label>
+
             <nav>
                 <ul>
                     <li><a href="#accueil">Accueil</a></li>
@@ -351,6 +405,7 @@
         </div>
     </header>
 
+    <!-- Section Héro (Accueil) -->
     <section id="accueil" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content container">
@@ -363,17 +418,15 @@
         </div>
     </section>
 
-   <!-- Section Mes Services -->
+    <!-- Section Mes Services -->
     <section id="services" class="services container">
-        <!-- MISE À JOUR : Titre modifié en "Mes Services" -->
         <h2 class="section-title">Mes Services</h2>
         <div class="services-grid">
             
             <!-- Service 1 : Événementiel -->
             <div class="service-card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
-                <!-- Image d'un mariage vu d'en haut (invités en groupe) -->
                 <div style="width: 100%; height: 200px; overflow: hidden;">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80" alt="Événementiel - Mariage" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80" alt="Événementiel - Mariage" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div style="padding: 25px 20px 30px;">
                     <h3 style="margin-bottom: 15px; font-size: 1.4rem; color: var(--dark-slate);">Événementiel</h3>
@@ -383,9 +436,8 @@
 
             <!-- Service 2 : Tourisme -->
             <div class="service-card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
-                <!-- Image d'un bâtiment historique / château vu du ciel -->
                 <div style="width: 100%; height: 200px; overflow: hidden;">
-                    <img url('20260706_crussol_79.JPG') alt="Tourisme - Patrimoine historique" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+                    <img src="https://images.unsplash.com/photo-1524396309943-e03f52b98248?auto=format&fit=crop&w=600&q=80" alt="Tourisme - Patrimoine historique" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div style="padding: 25px 20px 30px;">
                     <h3 style="margin-bottom: 15px; font-size: 1.4rem; color: var(--dark-slate);">Tourisme</h3>
@@ -395,9 +447,8 @@
 
             <!-- Service 3 : Immobilier -->
             <div class="service-card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
-                <!-- Image d'une vue intérieure moderne d'un appartement / maison -->
                 <div style="width: 100%; height: 200px; overflow: hidden;">
-                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&q=80" alt="Immobilier - Intérieur moderne" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&q=80" alt="Immobilier - Intérieur moderne" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div style="padding: 25px 20px 30px;">
                     <h3 style="margin-bottom: 15px; font-size: 1.4rem; color: var(--dark-slate);">Immobilier</h3>
@@ -408,6 +459,7 @@
         </div>
     </section>
 
+    <!-- Vidéo Vitrine -->
     <section id="video-vitrine" class="container" style="padding: 40px 0 80px 0;">
         <h2 class="section-title">Découvrez notre Showreel</h2>
         <div class="video-container">
@@ -415,6 +467,7 @@
         </div>
     </section>
 
+    <!-- Section Matériels -->
     <section id="materiels" class="container" style="padding: 80px 0; border-top: 1px solid #eee;">
         <h2 class="section-title">Mon Matériel</h2>
         <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: -20px auto 40px;">
@@ -450,6 +503,7 @@
         </div>
     </section>
 
+    <!-- Section Contact -->
     <section id="contact" class="contact container">
         <div class="contact-box">
             <h2>Un projet en tête ?</h2>
@@ -489,6 +543,7 @@
         </div>
     </section>
 
+    <!-- Pied de page -->
     <footer>
         <div class="container footer-content">
             <p>&copy; 2026 UpMotion - Imagerie par drone et caméra. Tous droits réservés.</p>
