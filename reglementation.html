@@ -37,16 +37,16 @@
             margin: 0 auto;
         }
 
-       a {
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.3s ease;
-}
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
 
-/* AJOUT : Enlève les puces de la barre de navigation */
-ul {
-    list-style: none;
-}
+        /* CORRECTION : Enlève les puces de la barre de navigation */
+        ul {
+            list-style: none;
+        }
 
         header {
             background-color: var(--white);
@@ -61,6 +61,7 @@ ul {
             justify-content: space-between;
             align-items: center;
             padding: 15px 0;
+            position: relative;
         }
 
         .logo img {
@@ -91,6 +92,11 @@ ul {
             border-radius: 25px;
         }
 
+        /* Masquage du menu mobile par défaut sur PC */
+        .menu-toggle, .menu-icon {
+            display: none;
+        }
+
         .section-title {
             text-align: center;
             font-size: 2.5rem;
@@ -111,7 +117,6 @@ ul {
             font-weight: 600;
         }
 
-        /* Conteneur pour intégrer la carte Géoportail nativement */
         .map-container {
             position: relative;
             width: 100%;
@@ -148,6 +153,23 @@ ul {
             font-size: 0.95rem;
         }
 
+        /* Bouton personnalisé pour Géoportail */
+        .btn-map-link {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(28, 82, 163, 0.2);
+        }
+
+        .btn-map-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(28, 82, 163, 0.3);
+        }
+
         footer {
             background-color: var(--dark-slate);
             color: var(--white);
@@ -177,8 +199,49 @@ ul {
             -webkit-text-fill-color: transparent;
         }
 
+        /* RESPONSIVE SMARTPHONE (Menu Tactile CSS) */
         @media (max-width: 768px) {
-            nav { display: none; }
+            .menu-icon {
+                display: block;
+                font-size: 1.8rem;
+                color: var(--dark-slate);
+                cursor: pointer;
+                z-index: 1001;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-in-out;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+                align-items: flex-start;
+            }
+
+            nav ul li {
+                width: 100%;
+            }
+
+            nav ul li a {
+                display: block;
+                width: 100%;
+                padding: 5px 0;
+            }
+
+            .menu-toggle:checked ~ nav {
+                max-height: 350px;
+            }
+
             .map-container { height: 400px; }
             .footer-content { flex-direction: column; gap: 15px; text-align: center; }
         }
@@ -186,13 +249,19 @@ ul {
 </head>
 <body>
 
+    <!-- Barre de navigation -->
     <header>
         <div class="navbar container">
             <div class="logo">
                 <a href="index.html">
+                    <!-- CORRECTION : Logo calé à la racine -->
                     <img src="Logo UM.png" alt="UpMotion Logo">
                 </a>
             </div>
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="menu-icon"><i class="fa-solid fa-bars"></i></label>
+
             <nav>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
@@ -206,6 +275,7 @@ ul {
         </div>
     </header>
 
+    <!-- Zone Contenu Réglementation -->
     <main class="container reglementation-section">
         <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Retour à l'accueil</a>
         <h1 class="section-title">Cadre Réglementaire</h1>
@@ -217,27 +287,24 @@ ul {
             </p>
         </div>
 
-       <div class="info-box" style="border-left-color: #e67e22;">
+        <div class="info-box" style="border-left-color: #e67e22;">
             <h3><i class="fa-solid fa-map-location-dot"></i> Carte des restrictions UAS (Catégorie Ouverte)</h3>
-            <p style="margin-bottom: 15px;">
+            <p>
                 Consultez ci-dessous la carte officielle interactive. Elle recense les hauteurs maximales de vol autorisées pour les drones en France. Les zones rouges représentent des interdictions strictes.
             </p>
-            <!-- BOUTON DE SECOURS DIRECT : Indispensable si l'iframe bloque sur certains navigateurs -->
-            <a href="https://www.geoportail.gouv.fr/donnees/restrictions-uas-categorie-ouverte-et-aeromodelisme" target="_blank" class="btn-primary" style="display: inline-block; padding: 10px 20px; font-size: 0.9rem; border-radius: 5px; margin-top: 5px;">
+            <!-- CORRECTION : Gros bouton d'accès direct de secours pour mobile et cas de blocage d'iframe -->
+            <a href="https://www.geoportail.gouv.fr/donnees/restrictions-uas-categorie-ouverte-et-aeromodelisme" target="_blank" class="btn-map-link">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i> Ouvrir la carte officielle sur Géoportail
             </a>
         </div>
 
-        <!-- 🗺️ INTÉGRATION DE LA CARTE GÉOPORTAIL CORRIGÉE -->
+        <!-- 🗺️ INTÉGRATION DE LA CARTE GÉOPORTAIL -->
         <div class="map-container">
             <iframe src="https://www.geoportail.gouv.fr/embed/visu.html?c=2.3488,48.8566&z=6&l=GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN-EXpress::GEOPORTAIL:OGC:WMTS(1)+RESTRICTIONS_POUR_DRONES_DE_LOISIR::GEOPORTAIL:OGC:WMTS(0.7)&permalink=no" allowfullscreen></iframe>
         </div>
-
-        <div class="map-container">
-            <iframe src="https://www.geoportail.gouv.fr/donnees/restrictions-uas-categorie-ouverte-et-aeromodelisme" allowfullscreen></iframe>
-        </div>
     </main>
 
+    <!-- Pied de page -->
     <footer>
         <div class="container footer-content">
             <p>&copy; 2026 UpMotion - Imagerie par drone et caméra. Tous droits réservés.</p>
