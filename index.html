@@ -553,6 +553,14 @@
             </div>
         </div>
     </footer>
-
+    <script>
+        window.addEventListener('pageshow', function(event) {
+            // Repère le formulaire de contact
+            const form = document.querySelector('.contact-form');
+            if (form) {
+                form.reset(); // Vide instantanément tous les champs (nom, email, message, boutons radio...)
+            }
+        });
+    </script>
 </body>
 </html>
