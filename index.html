@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UpMotion Studio - Imagerie Drone & Solutions Immersives 360°</title>
-    <!-- Importation de polices modernes et élégantes -->
+    <!-- Importation des polices premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
-    <!-- FontAwesome pour les icônes de réseaux sociaux -->
+    <!-- FontAwesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         /* ==========================================================================
-           1. VARIABLES & CHARTE GRAPHIQUE PREMIUM (OR & BLEU NUIT)
+           CHARTE GRAPHIQUE UP MOTION (FOND #0C2A45)
            ========================================================================== */
         :root {
-            --bg-dark-slate: #0C2A45;  /* Bleu nuit très profond */
-            --bg-card: #1a222d;        /* Version légèrement plus claire pour les cartes */
+            --bg-dark-custom: #0C2A45; /* Votre bleu royal personnalisé */
+            --bg-card-glow: #133759;   /* Version légèrement plus claire pour détacher les cartes */
             --gold-primary: #c5a059;   /* Or mat officiel */
             --gold-light: #e5cda1;     /* Or clair éclatant */
             --white-pure: #ffffff;     /* Blanc pur */
-            --text-muted: #a0aab5;     /* Gris bleuté pour les textes secondaires */
+            --text-muted: #b2c4d4;     /* Gris bleuté clair pour une parfaite lisibilité */
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -33,7 +33,7 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-dark-slate);
+            background-color: var(--bg-dark-custom);
             color: var(--white-pure);
             line-height: 1.6;
             scroll-behavior: smooth;
@@ -56,9 +56,7 @@
             list-style: none;
         }
 
-        /* ==========================================================================
-           2. COMPOSANTS RÉUTILISABLES
-           ========================================================================== */
+        /* COMPOSANTS RÉUTILISABLES */
         .section-title {
             text-align: center;
             font-size: 2.5rem;
@@ -90,7 +88,7 @@
 
         .btn-primary {
             background: linear-gradient(135deg, var(--gold-primary), var(--gold-light));
-            color: var(--bg-dark-slate);
+            color: #0C2A45;
             padding: 14px 35px;
             border-radius: 4px;
             font-weight: 600;
@@ -129,11 +127,9 @@
             transform: translateY(-3px);
         }
 
-        /* ==========================================================================
-           3. BARRE DE NAVIGATION (Logo très présent)
-           ========================================================================== */
+        /* BARRE DE NAVIGATION (Avec le nouveau logo) */
         header {
-            background-color: rgba(40, 52, 68, 0.3);
+            background-color: rgba(12, 42, 69, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(197, 160, 89, 0.15);
             position: sticky;
@@ -148,27 +144,26 @@
             padding: 12px 0;
         }
 
-        /* Logo valorisé et agrandi */
         .logo img {
-            height: 85px; /* Augmenté pour donner de l'impact au nouveau logo */
+            height: 85px;
             width: auto;
             display: block;
             transition: var(--transition);
         }
 
         .logo img:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         nav ul {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 25px;
         }
 
         nav ul li a {
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--text-muted);
@@ -181,34 +176,26 @@
         .btn-nav {
             border: 1px solid var(--gold-primary) !important;
             color: var(--gold-primary) !important;
-            padding: 10px 22px;
+            padding: 10px 20px;
             border-radius: 4px;
         }
 
         .btn-nav:hover {
             background-color: var(--gold-primary);
-            color: var(--bg-dark-slate) !important;
+            color: var(--bg-dark-custom) !important;
         }
 
         .menu-toggle, .menu-icon {
             display: none;
         }
 
-        /* Espacements d'ancrage fluides */
-        #accueil, #services, #video-vitrine, #materiels, #contact {
-            scroll-margin-top: 110px;
-        }
-
-        /* ==========================================================================
-           4. SECTION HERO (Mise en valeur de l'image de fond)
-           ========================================================================== */
+        /* SECTION HERO (Mise en valeur de fond UM.png) */
         .hero {
             position: relative;
             min-height: calc(100vh - 110px);
             display: flex;
             align-items: center;
             padding: 60px 0;
-            overflow: hidden;
         }
 
         .hero-grid {
@@ -217,10 +204,6 @@
             gap: 40px;
             align-items: center;
             z-index: 2;
-        }
-
-        .hero-content {
-            text-align: left;
         }
 
         .hero-content .tagline {
@@ -234,12 +217,10 @@
         }
 
         .hero h1 {
-            font-family: 'Montserrat', sans-serif;
             font-size: 3.2rem;
             font-weight: 700;
             line-height: 1.15;
             margin-bottom: 25px;
-            letter-spacing: -1px;
         }
 
         .hero h1 span {
@@ -259,18 +240,16 @@
             gap: 15px;
         }
 
-        /* Conteneur asymétrique de l'image triptyque */
         .hero-image-wrapper {
             position: relative;
             width: 100%;
-            height: auto;
         }
 
         .hero-image-wrapper img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border-radius: 6px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             transition: var(--transition);
         }
 
@@ -279,12 +258,10 @@
             box-shadow: 0 25px 50px rgba(197, 160, 89, 0.15);
         }
 
-        /* ==========================================================================
-           5. SECTION SERVICES & PRESTATIONS
-           ========================================================================== */
+        /* SECTIONS PRESTATIONS */
         .services {
             padding: 100px 0;
-            background-color: rgba(26, 34, 45, 0.3);
+            background-color: rgba(19, 55, 89, 0.4);
         }
 
         .services-grid {
@@ -294,36 +271,17 @@
         }
 
         .service-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(197, 160, 89, 0.08);
-            border-radius: 8px;
+            background: var(--bg-card-glow);
+            border: 1px solid rgba(197, 160, 89, 0.1);
+            border-radius: 6px;
             padding: 40px 30px;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gold-primary), var(--gold-light));
-            transform: scaleX(0);
-            transform-origin: left;
             transition: var(--transition);
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(197, 160, 89, 0.3);
+            transform: translateY(-8px);
+            border-color: var(--gold-primary);
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
         }
 
         .service-icon {
@@ -332,33 +290,18 @@
             margin-bottom: 25px;
         }
 
-        .service-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .service-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            font-weight: 300;
-        }
-
-        /* ==========================================================================
-           6. SECTIONS INTERMÉDIAIRES & VIDÉO VITRINE
-           ========================================================================== */
+        /* SECTION VIDÉO VITRINE */
         .video-section {
             padding: 100px 0;
         }
 
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* Ratio 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border-radius: 8px;
+            border-radius: 6px;
             border: 1px solid rgba(197, 160, 89, 0.2);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
         }
 
         .video-container iframe {
@@ -370,22 +313,19 @@
             border: 0;
         }
 
-        /* ==========================================================================
-           7. FORMULAIRE DE CONTACT
-           ========================================================================== */
+        /* SECTION CONTACT */
         .contact {
             padding: 100px 0;
-            background-color: rgba(26, 34, 45, 0.3);
+            background-color: rgba(19, 55, 89, 0.4);
         }
 
         .contact-box {
             max-width: 650px;
             margin: 0 auto;
-            background: var(--bg-card);
-            border: 1px solid rgba(197, 160, 89, 0.1);
+            background: var(--bg-card-glow);
+            border: 1px solid rgba(197, 160, 89, 0.15);
             padding: 50px 40px;
-            border-radius: 8px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            border-radius: 6px;
         }
 
         .contact-form {
@@ -397,35 +337,25 @@
         .contact-form input, .contact-form textarea {
             width: 100%;
             padding: 16px;
-            background-color: var(--bg-dark-slate);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: var(--bg-dark-custom);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             color: var(--white-pure);
             border-radius: 4px;
             font-size: 1rem;
             outline: none;
-            transition: var(--transition);
             font-family: 'Montserrat', sans-serif;
         }
 
         .contact-form input:focus, .contact-form textarea:focus {
             border-color: var(--gold-primary);
-            box-shadow: 0 0 8px rgba(197, 160, 89, 0.2);
         }
 
-        .contact-form button {
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        /* ==========================================================================
-           8. FOOTER ET RÉSEAUX SOCIAUX
-           ========================================================================== */
+        /* FOOTER */
         footer {
-            background-color: #0b0f14;
-            border-top: 1px solid rgba(197, 160, 89, 0.1);
+            background-color: #061829;
+            border-top: 1px solid rgba(197, 160, 89, 0.15);
             color: var(--text-muted);
             padding: 40px 0;
-            font-size: 0.9rem;
         }
 
         .footer-content {
@@ -437,7 +367,7 @@
         .socials {
             display: flex;
             gap: 25px;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
         }
 
         .socials a {
@@ -449,36 +379,15 @@
             transform: translateY(-3px);
         }
 
-        .socials a.IG:hover i {
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-            display: inline-block;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .socials a.YT:hover {
-            color: #FF0000;
-        }
-
-        /* ==========================================================================
-           9. RESPONSIVE MOBILE
-           ========================================================================== */
+        /* RESPONSIVE MOBILE */
         @media (max-width: 992px) {
             .hero-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 50px;
             }
-
-            .hero-content {
-                text-align: center;
+            .hero-p {
+                margin: 0 auto 40px;
             }
-
-            .hero p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
             .hero-buttons {
                 justify-content: center;
             }
@@ -488,38 +397,29 @@
             .menu-icon {
                 display: block;
                 font-size: 1.8rem;
-                color: var(--white-pure);
                 cursor: pointer;
-                z-index: 1001;
             }
-
             nav {
                 position: absolute;
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: rgba(18, 24, 32, 0.98);
-                border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+                background: #0C2A45;
                 max-height: 0;
                 overflow: hidden;
                 transition: max-height 0.4s ease-in-out;
             }
-
             nav ul {
                 flex-direction: column;
                 padding: 30px;
-                gap: 25px;
-                align-items: center;
+                gap: 20px;
             }
-
             .menu-toggle:checked ~ nav {
-                max-height: 380px;
+                max-height: 450px;
             }
-
             .hero h1 {
                 font-size: 2.3rem;
             }
-
             .footer-content {
                 flex-direction: column;
                 gap: 20px;
@@ -530,9 +430,7 @@
 </head>
 <body>
 
-    <!-- ==========================================================================
-       HEADER (Navigation avec nouveau logo)
-       ========================================================================== -->
+    <!-- NAV BARRE (Garde tous vos liens d'origine) -->
     <header>
         <div class="container navbar">
             <a href="index.html" class="logo">
@@ -544,127 +442,95 @@
             
             <nav>
                 <ul>
-                    <li><a href="#accueil" class="active">Accueil</a></li>
-                    <li><a href="#services">Prestations</a></li>
-                    <li><a href="#video-vitrine">Démo</a></li>
-                    <li><a href="#contact" class="btn-nav">Nous Contacter</a></li>
+                    <li><a href="index.html" class="active">Accueil</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="reglementation.html">Réglementation</a></li>
+                    <li><a href="#contact" class="btn-nav">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- ==========================================================================
-       HERO SECTION (Mise en valeur de fond UM.png)
-       ========================================================================== */ -->
+    <!-- SECTION HERO (Mise en valeur de fond UM.png) -->
     <section id="accueil" class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
                 <span class="tagline">UpMotion Studio</span>
                 <h1>Prenez de la <span>hauteur</span></h1>
-                <p>Créateur de contenus visuels d’excellence en Rhône-Alpes. Nous combinons la puissance de la prise de vue par drone et l’innovation des solutions immersives à 360° pour sublimer vos projets.</p>
+                <p class="hero-p">Production audiovisuelle et imagerie technique par drone en région Rhône-Alpes. Découvrez notre expertise unique alliant la captation aérienne 4K et les visites virtuelles à 360°.</p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn-primary">Parlons de votre projet</a>
-                    <a href="#services" class="btn-secondary">Découvrir nos offres</a>
+                    <a href="#contact" class="btn-primary">Lancer un projet</a>
+                    <a href="galerie.html" class="btn-secondary">Voir la galerie</a>
                 </div>
             </div>
             <div class="hero-image-wrapper">
-                <img src="images/fond UM.png" alt="Réalisations UpMotion : Littoral, Château & Villa contemporaine">
+                <img src="images/fond UM.png" alt="Réalisations UpMotion Studio">
             </div>
         </div>
     </section>
 
-    <!-- ==========================================================================
-       SERVICES SECTION
-       ========================================================================== -->
-    <section id="services" class="services">
+    <!-- PRESTATIONS -->
+    <section class="services">
         <div class="container">
-            <h2 class="section-title">Nos Prestations <span>Des solutions visuelles complètes</span></h2>
-            
+            <h2 class="section-title">Nos Prestations <span>Des solutions visuelles sur mesure</span></h2>
             <div class="services-grid">
-                <!-- Événementiel -->
                 <div class="service-card">
                     <div class="service-icon"><i class="fa-solid fa-ring"></i></div>
-                    <h3>Événements</h3>
-                    <p>Mariages, festivals, rassemblements sportifs et familiaux. Immortalisez vos plus beaux moments sous des angles aériens inédits et spectaculaires.</p>
+                    <h3>Événementiel</h3>
+                    <p>Sublimez vos mariages, festivals et grands rassemblements avec des prises de vues aériennes mémorables.</p>
                 </div>
-                
-                <!-- Immobilier -->
                 <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-house-chimney-window"></i></div>
+                    <div class="service-icon"><i class="fa-solid fa-house-user"></i></div>
                     <h3>Immobilier</h3>
-                    <p>Sublimez vos propriétés et domaines. Nous associons la vidéo aérienne par drone et les visites virtuelles intérieures 360° pour un coup de cœur garanti.</p>
+                    <p>Packs complets mariant vues de drone extérieures et visites immersives intérieures à 360° pour vos biens.</p>
                 </div>
-                
-                <!-- Tourisme & Communes -->
                 <div class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-mountain-sun"></i></div>
-                    <h3>Tourisme & Communes</h3>
-                    <p>Valorisation de territoires, gîtes de charme, et patrimoine historique. Donnez une nouvelle dimension à l'attractivité touristique de votre région.</p>
+                    <div class="service-icon"><i class="fa-solid fa-gopuram"></i></div>
+                    <h3>Patrimoine & Communes</h3>
+                    <p>Mettez en valeur l'attractivité de vos territoires, gîtes de prestige et monuments historiques régionaux.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==========================================================================
-       VIDEO VITRINE SECTION
-       ========================================================================== -->
-    <section id="video-vitrine" class="video-section">
+    <!-- VIDÉO VITRINE (Garde l'intégration exacte de votre vidéo) -->
+    <section class="video-section">
         <div class="container">
-            <h2 class="section-title">Vidéo Vitrine <span>Notre univers en mouvement</span></h2>
+            <h2 class="section-title">Vidéo Vitrine <span>Notre showreel en mouvement</span></h2>
             <div class="video-container">
-                <!-- Exemple d'intégration vidéo (remplacez l'URL par votre propre vidéo Youtube/Vimeo) -->
+                <!-- Votre lien vidéo d'origine -->
                 <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
             </div>
         </div>
     </section>
 
-    <!-- ==========================================================================
-       CONTACT SECTION
-       ========================================================================== -->
+    <!-- CONTACT -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Un projet à réaliser ? <span>Écrivons-le ensemble</span></h2>
-            
+            <h2 class="section-title">Un projet en tête ? <span>Contactez-nous</span></h2>
             <div class="contact-box">
-                <!-- Formulaire de contact configuré pour Web3Forms -->
                 <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
-                    <!-- Clé d'accès à configurer -->
                     <input type="hidden" name="access_key" value="VOTRE_CLE_ICI">
-                    
-                    <input type="text" name="name" placeholder="Votre nom complet" required>
-                    <input type="email" name="email" placeholder="Votre adresse email" required>
-                    <textarea name="message" rows="6" placeholder="Décrivez votre projet (Événement, Immobilier, Tourisme...)" required></textarea>
-                    
+                    <input type="text" name="name" placeholder="Votre nom" required>
+                    <input type="email" name="email" placeholder="Votre email" required>
+                    <textarea name="message" rows="5" placeholder="Parlez-moi de votre projet..." required></textarea>
                     <button type="submit" class="btn-primary">Envoyer le message</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- ==========================================================================
-       FOOTER (Pied de page et réseaux sociaux)
-       ========================================================================== -->
+    <!-- FOOTER (Garde vos réseaux sociaux d'origine : Instagram, YouTube, Mail) -->
     <footer>
         <div class="container footer-content">
             <p>&copy; 2026 UpMotion Studio. Tous droits réservés.</p>
             <div class="socials">
-                <a href="#" class="IG" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="YT" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://instagram.com/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://youtube.com/" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
                 <a href="mailto:fducourthial@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
             </div>
         </div>
     </footer>
 
-    <!-- ==========================================================================
-       SCRIPT D'AUTO-NETTOYAGE DU FORMULAIRE (pageshow pour gestion du bouton retour)
-       ========================================================================== -->
-    <script>
-        window.addEventListener('pageshow', function(event) {
-            const form = document.querySelector('.contact-form');
-            if (form) {
-                form.reset();
-            }
-        });
-    </script>
 </body>
 </html>
