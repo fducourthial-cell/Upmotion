@@ -1184,6 +1184,9 @@
 
         packButtons.forEach(button => {
             button.addEventListener('click', function(e) {
+                // IMPORTANT : On empêche le comportement par défaut du lien pour gérer le scroll nous-mêmes
+                e.preventDefault();
+
                 // Récupère la destination (ex: #contact?pack=immobilier)
                 const href = this.getAttribute('href');
                 
@@ -1202,6 +1205,12 @@
                     } else if (packType === 'evenementiel') {
                         document.getElementById('check-evenementiel').checked = true;
                     }
+                }
+
+                // FORCE LE SCROLL FLUIDE : Cible la section contact et y descend proprement
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
