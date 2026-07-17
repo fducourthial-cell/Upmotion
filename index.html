@@ -314,40 +314,101 @@
         }
 
         /* SECTION CONTACT */
-        .contact {
-            padding: 100px 0;
-            background-color: rgba(19, 55, 89, 0.4);
+       /* Styles spécifiques pour les cases à cocher du formulaire */
+        .project-type-container {
+            text-align: left;
+            margin: 10px 0 5px;
         }
 
-        .contact-box {
-            max-width: 650px;
-            margin: 0 auto;
-            background: var(--bg-card-glow);
-            border: 1px solid rgba(197, 160, 89, 0.15);
-            padding: 50px 40px;
-            border-radius: 6px;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 16px;
-            background-color: var(--bg-dark-custom);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+        .project-label {
             color: var(--white-pure);
-            border-radius: 4px;
-            font-size: 1rem;
-            outline: none;
-            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
         }
 
-        .contact-form input:focus, .contact-form textarea:focus {
+        .checkbox-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            cursor: pointer;
+            user-select: none;
+            transition: var(--transition);
+        }
+
+        /* Masquer la case à cocher native du navigateur */
+        .checkbox-label input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        /* Création du carré de coche personnalisé */
+        .custom-checkbox {
+            width: 20px;
+            height: 20px;
+            background-color: var(--bg-dark-custom);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            display: inline-block;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        /* Effet au survol */
+        .checkbox-label:hover .custom-checkbox {
             border-color: var(--gold-primary);
+        }
+
+        /* Style quand la case est cochée */
+        .checkbox-label input:checked ~ .custom-checkbox {
+            background-color: var(--gold-primary);
+            border-color: var(--gold-primary);
+        }
+
+        .checkbox-label input:checked {
+            color: var(--white-pure);
+        }
+
+        /* Dessin de la coche (le petit V blanc à l'intérieur) */
+        .custom-checkbox::after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid var(--bg-dark-custom);
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        /* Afficher la coche quand c'est sélectionné */
+        .checkbox-label input:checked ~ .custom-checkbox::after {
+            display: block;
+        }
+
+        /* Changement de couleur du texte quand coché */
+        .checkbox-label input:checked ~ font, 
+        .checkbox-label input:checked + .custom-checkbox + text,
+        .checkbox-label {
+            transition: var(--transition);
+        }
+        
+        .checkbox-label input:checked ~ * {
+            color: var(--white-pure);
         }
 
         /* FOOTER */
@@ -505,15 +566,43 @@
     </section>
 
     <!-- CONTACT -->
+   <!-- CONTACT AVEC SÉLECTION DE PROJET -->
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Un projet en tête ? <span>Contactez-nous</span></h2>
             <div class="contact-box">
                 <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
                     <input type="hidden" name="access_key" value="VOTRE_CLE_ICI">
+                    
+                    <!-- Informations de contact -->
                     <input type="text" name="name" placeholder="Votre nom" required>
                     <input type="email" name="email" placeholder="Votre email" required>
-                    <textarea name="message" rows="5" placeholder="Parlez-moi de votre projet..." required></textarea>
+                    
+                    <!-- Sélection du type de projet (Cases à cocher premium) -->
+                    <div class="project-type-container">
+                        <p class="project-label">Votre projet concerne :</p>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="type_projet[]" value="Événementiel">
+                                <span class="custom-checkbox"></span>
+                                Événementiel
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="type_projet[]" value="Immobilier">
+                                <span class="custom-checkbox"></span>
+                                Immobilier
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="type_projet[]" value="Tourisme & Communes">
+                                <span class="custom-checkbox"></span>
+                                Tourisme & Communes
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Corps du message -->
+                    <textarea name="message" rows="5" placeholder="Détails de votre projet (date, lieu, attentes particulières...)" required></textarea>
+                    
                     <button type="submit" class="btn-primary">Envoyer le message</button>
                 </form>
             </div>
