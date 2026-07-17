@@ -642,6 +642,128 @@
             color: var(--gold-primary);
             transform: translateY(-3px);
         }
+        /* Style Global du Footer Élargi */
+        footer {
+            background-color: #061829;
+            border-top: 1px solid rgba(197, 160, 89, 0.15);
+            padding: 60px 0 30px;
+            color: var(--text-muted);
+        }
+
+        .footer-faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        /* Section FAQ */
+        .footer-faq-section {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .footer-faq-section h3 {
+            font-size: 1.3rem;
+            color: var(--white-pure);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .faq-subtitle {
+            font-size: 0.9rem;
+            color: rgba(178, 196, 212, 0.6);
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        /* L'accordéon */
+        .faq-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background-color: rgba(19, 55, 89, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            border-color: rgba(197, 160, 89, 0.2);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 18px 20px;
+            color: var(--white-pure);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            outline: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .faq-question i {
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            transition: transform 0.3s ease;
+        }
+
+        /* Contenu de la réponse masqué par défaut */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: rgba(12, 42, 69, 0.4);
+        }
+
+        .faq-answer p {
+            padding: 0 20px 20px 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* État Actif (Quand cliqué) */
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active {
+            border-color: var(--gold-primary);
+        }
+
+        /* Ligne du bas */
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
 
         /* RESPONSIVE MOBILE */
         @media (max-width: 992px) {
@@ -999,14 +1121,61 @@
 </section>
 
     <!-- FOOTER (Garde vos réseaux sociaux d'origine : Instagram, YouTube, Mail) -->
+    <!-- PIED DE PAGE AVEC FAQ INTÉGRÉE -->
     <footer>
-        <div class="container footer-content">
-            <p>&copy; 2026 UpMotion Studio. Tous droits réservés.</p>
-            <div class="socials">
-                <a href="https://www.instagram.com/upmotion_studio/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.youtube.com/watch?v=jHCxGhSWiu4" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-                <a href="mailto:fducourthial@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        <div class="container footer-faq-container">
+            
+            <!-- BLOC DE LA FAQ STRATÉGIQUE -->
+            <div class="footer-faq-section">
+                <h3><i class="fa-solid fa-circle-question"></i> Questions Fréquentes (FAQ)</h3>
+                <p class="faq-subtitle">Tout savoir sur le déroulement de nos prestations de drone et d'imagerie 360°.</p>
+                
+                <div class="faq-accordion">
+                    <!-- Question 1 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Que se passe-t-il en cas de mauvaise météo ?</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>La sécurité est notre priorité absolue. Si les conditions météorologiques (pluie, vent fort supérieur à 35 km/h) ne permettent pas un vol conforme aux règles de la DGAC, la prestation est reportée à une date ultérieure sans aucun frais supplémentaire pour vous.</p>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Prenez-vous en charge les autorisations de vol ?</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Oui, UpMotion Studio gère l'intégralité des démarches administratives. Qu'il s'agisse de déclarations préalables en préfecture pour les vols en zone peuplée (Scénario S3) ou de protocoles spécifiques avec les aérodromes locaux, nous prenons tout en charge avant notre arrivée.</p>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Quels sont vos délais de livraison des fichiers ?</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Pour les prestations de photographies aériennes et de visites virtuelles 360° classiques, vos livrables triés et retouchés sont mis à disposition via un lien de téléchargement sécurisé sous 48 à 72 heures ouvrées après la fin du tournage.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- BLOC DES DROITS ET RÉSEAUX (VOTRE FOOTER ACTUEL) -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 UpMotion Studio. Tous droits réservés.</p>
+                <div class="socials">
+                    <a href="https://instagram.com/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://youtube.com/" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="mailto:fducourthial@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+            
         </div>
     </footer>
     <script>
@@ -1033,6 +1202,31 @@
                     } else if (packType === 'evenementiel') {
                         document.getElementById('check-evenementiel').checked = true;
                     }
+                }
+            });
+        });
+    </script>
+    <script>
+        // Logique de l'accordéon FAQ du Footer
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                
+                // Si l'élément est déjà actif, on le ferme
+                if (faqItem.classList.contains('active')) {
+                    faqItem.classList.remove('active');
+                    answer.style.maxHeight = null;
+                } else {
+                    // Optionnel : Ferme les autres questions ouvertes
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-answer').style.maxHeight = null;
+                    });
+                    
+                    // On ouvre la question cliquée
+                    faqItem.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
                 }
             });
         });
