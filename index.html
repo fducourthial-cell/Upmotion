@@ -919,7 +919,7 @@
                         <li><i class="fa-solid fa-check"></i> Vidéo brute 4K (30s)</li>
                         <li><i class="fa-solid fa-check"></i> Démarches DGAC incluses</li>
                     </ul>
-                    <a href="#contact" class="btn-secondary">Choisir ce pack</a>
+                    <a href="#contact?pack=immobilier" class="btn-secondary select-pack-btn">Choisir ce pack</a>
                 </div>
 
                 <!-- Pack 2 (Mis en valeur) -->
@@ -934,7 +934,7 @@
                         <li><i class="fa-solid fa-check"></i> Jusqu'à 5 pièces interactives</li>
                         <li><i class="fa-solid fa-check"></i> Idéal Gîtes & Biens d'exception</li>
                     </ul>
-                    <a href="#contact" class="btn-primary">Lancer mon projet</a>
+                    <a href="#contact?pack=immobilier" class="btn-primary select-pack-btn">Lancer mon projet</a>
                 </div>
 
                 <!-- Pack 3 -->
@@ -947,7 +947,7 @@
                         <li><i class="fa-solid fa-check"></i> 15 Photos HD triées/retouchées</li>
                         <li><i class="fa-solid fa-check"></i> **Clip vidéo monté (1 à 2 min)**</li>
                     </ul>
-                    <a href="#contact" class="btn-secondary">Demander un devis</a>
+                    <a href="#contact?pack=evenementiel" class="btn-secondary select-pack-btn">Demander un devis</a>
                 </div>
             </div>
             
@@ -969,26 +969,24 @@
                 <input type="email" name="email" placeholder="Votre email" required>
                 
                 <!-- Sélection du type de projet -->
-                <div class="project-type-container">
-                    <p class="project-label">Votre projet concerne :</p>
-                    <div class="checkbox-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="type_projet[]" value="Événementiel">
-                            <span class="custom-checkbox"></span>
-                            Événementiel
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="type_projet[]" value="Immobilier">
-                            <span class="custom-checkbox"></span>
-                            Immobilier
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="type_projet[]" value="Tourisme & Communes">
-                            <span class="custom-checkbox"></span>
-                            Tourisme & Communes
-                        </label>
-                    </div>
-                </div>
+                <div class="checkbox-group">
+    <label class="checkbox-label">
+        <input type="checkbox" id="check-evenementiel" name="type_projet[]" value="Événementiel">
+        <span class="custom-checkbox"></span>
+        Événementiel
+    </label>
+    <label class="checkbox-label">
+        <input type="checkbox" id="check-immobilier" name="type_projet[]" value="Immobilier">
+        <span class="custom-checkbox"></span>
+        Immobilier
+    </label>
+    <label class="checkbox-label">
+        <input type="checkbox" id="check-tourisme" name="type_projet[]" value="Tourisme & Communes">
+        <span class="custom-checkbox"></span>
+        Tourisme & Communes
+    </label>
+</div>
+            
                 
                 <!-- Corps du message -->
                 <textarea name="message" rows="5" placeholder="Détails de votre projet (date, lieu, attentes particulières...)" required></textarea>
@@ -1010,6 +1008,34 @@
             </div>
         </div>
     </footer>
+    <script>
+        // Sélectionne tous les boutons de choix de pack
+        const packButtons = document.querySelectorAll('.select-pack-btn');
+
+        packButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Récupère la destination (ex: #contact?pack=immobilier)
+                const href = this.getAttribute('href');
+                
+                // On extrait le type de pack (?pack=...)
+                if (href.includes('?pack=')) {
+                    const packType = href.split('?pack=')[1];
+                    
+                    // On décoche d'abord toutes les cases pour repartir à zéro
+                    document.getElementById('check-evenementiel').checked = false;
+                    document.getElementById('check-immobilier').checked = false;
+                    document.getElementById('check-tourisme').checked = false;
+
+                    // On coche la case correspondante
+                    if (packType === 'immobilier') {
+                        document.getElementById('check-immobilier').checked = true;
+                    } else if (packType === 'evenementiel') {
+                        document.getElementById('check-evenementiel').checked = true;
+                    }
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
