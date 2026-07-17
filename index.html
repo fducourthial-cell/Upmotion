@@ -345,6 +345,137 @@
             height: 100%;
             border: 0;
         }
+        /* Section Tarifs */
+        .tarifs-section {
+            padding: 100px 0;
+            background-color: rgba(19, 55, 89, 0.2);
+            text-align: center;
+        }
+
+        .tarifs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            align-items: stretch;
+            margin-top: 50px;
+        }
+
+        .tarif-card {
+            background: var(--bg-card-glow);
+            border: 1px solid rgba(197, 160, 89, 0.15);
+            border-radius: 6px;
+            padding: 45px 30px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        /* Mise en valeur du pack Premium */
+        .tarif-card.popular {
+            border-color: var(--gold-primary);
+            box-shadow: 0 15px 35px rgba(197, 160, 89, 0.1);
+            transform: scale(1.03);
+        }
+
+        .badge-popular {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--gold-primary);
+            color: var(--bg-dark-custom);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .tarif-card h3 {
+            font-size: 1.4rem;
+            color: var(--white-pure);
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .starting-at {
+            font-size: 0.9rem !important;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tarif-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            min-height: 45px;
+        }
+
+        .tarif-features {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex: 1;
+        }
+
+        .tarif-features li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 300;
+        }
+
+        .tarif-features li i {
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+        }
+
+        .tarif-features li strong {
+            color: var(--white-pure);
+        }
+
+        .tarif-card .btn-primary, .tarif-card .btn-secondary {
+            width: 100%;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .tarifs-note {
+            margin-top: 40px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        @media (max-width: 992px) {
+            .tarif-card.popular {
+                transform: scale(1);
+            }
+        }
 
         /* SECTION CONTACT */
       /* ==========================================================================
@@ -769,6 +900,59 @@
               <iframe src="https://www.youtube.com/embed/jHCxGhSWiu4?si=MutKTj-qf8MXhqQv" allowfullscreen></iframe>
 </div>   
             </div>
+        </div>
+    </section>
+    <!-- SECTION TARIFS -->
+    <section id="tarifs" class="tarifs-section">
+        <div class="container">
+            <h2 class="section-title">Nos Tarifs <span>Des offres claires, transparentes et sans surprise</span></h2>
+            
+            <div class="tarifs-grid">
+                <!-- Pack 1 -->
+                <div class="tarif-card">
+                    <h3>Immo Standard</h3>
+                    <div class="price">190€ <span>HT</span></div>
+                    <p class="tarif-desc">Idéal pour valoriser les extérieurs d'un bien immobilier standard.</p>
+                    <ul class="tarif-features">
+                        <li><i class="fa-solid fa-check"></i> Déplacement & Vols inclus</li>
+                        <li><i class="fa-solid fa-check"></i> 8 à 10 Photos HD retouchées</li>
+                        <li><i class="fa-solid fa-check"></i> Vidéo brute 4K (30s)</li>
+                        <li><i class="fa-solid fa-check"></i> Démarches DGAC incluses</li>
+                    </ul>
+                    <a href="#contact" class="btn-secondary">Choisir ce pack</a>
+                </div>
+
+                <!-- Pack 2 (Mis en valeur) -->
+                <div class="tarif-card popular">
+                    <div class="badge-popular">Le plus demandé</div>
+                    <h3>Immo Premium 360°</h3>
+                    <div class="price">390€ <span>HT</span></div>
+                    <p class="tarif-desc">La solution ultime combinant l'aérien et l'immersion intérieure.</p>
+                    <ul class="tarif-features">
+                        <li><i class="fa-solid fa-check"></i> Extérieur Drone 4K (Air 3S)</li>
+                        <li><i class="fa-solid fa-check"></i> **Visite Virtuelle 360° Intérieure**</li>
+                        <li><i class="fa-solid fa-check"></i> Jusqu'à 5 pièces interactives</li>
+                        <li><i class="fa-solid fa-check"></i> Idéal Gîtes & Biens d'exception</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary">Lancer mon projet</a>
+                </div>
+
+                <!-- Pack 3 -->
+                <div class="tarif-card">
+                    <h3>Événementiel</h3>
+                    <div class="price"><span class="starting-at">À partir de</span> 450€ <span>HT</span></div>
+                    <p class="tarif-desc">Sublimez vos moments forts (mariages, festivals, cousinades).</p>
+                    <ul class="tarif-features">
+                        <li><i class="fa-solid fa-check"></i> Présence moments clés</li>
+                        <li><i class="fa-solid fa-check"></i> 15 Photos HD triées/retouchées</li>
+                        <li><i class="fa-solid fa-check"></i> **Clip vidéo monté (1 à 2 min)**</li>
+                        <li><i class="fa-solid fa-check"></i> Musique libre de droits incluse</li>
+                    </ul>
+                    <a href="#contact" class="btn-secondary">Demander un devis</a>
+                </div>
+            </div>
+            
+            <p class="tarifs-note">* Pour les demandes spécifiques (collectivités, suivis de chantiers longs), nos tarifs sont établis sur devis sur une base journalière. Contactez-nous pour une étude personnalisée.</p>
         </div>
     </section>
 
