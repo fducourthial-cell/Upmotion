@@ -3,314 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UpMotion | Réglementation & Restrictions UAS</title>
+    <title>Réglementation - UpMotion Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --primary-blue: #1c52a3;
-            --light-blue: #2575fc;
-            --dark-slate: #1a2229;
-            --light-bg: #f8f9fa;
-            --white: #ffffff;
-            --text-muted: #6c757d;
+            --bg-dark-custom: #0C2A45;
+            --bg-card-glow: #133759;
+            --gold-primary: #c5a059;
+            --gold-light: #e5cda1;
+            --white-pure: #ffffff;
+            --text-muted: #b2c4d4;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--dark-slate);
-            line-height: 1.6;
-            background-color: var(--light-bg);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark-custom);
+            color: var(--white-pure);
+            line-height: 1.7;
         }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-        }
-
-        /* CORRECTION : Enlève les puces de la barre de navigation */
-        ul {
-            list-style: none;
-        }
-
-        header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            position: relative;
-        }
-
-        .logo img {
-            height: 65px;
-            width: auto;
-            display: block;
-        }
-
-        nav ul {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-        nav ul li a {
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        nav ul li a:hover, nav ul li a.active {
-            color: var(--primary-blue);
-        }
-
-        .btn-nav {
-            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
-            color: var(--white) !important;
-            padding: 10px 20px;
-            border-radius: 25px;
-        }
-
-        /* Masquage du menu mobile par défaut sur PC */
-        .menu-toggle, .menu-icon {
-            display: none;
-        }
+        .container { width: 90%; max-width: 1000px; margin: 0 auto; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
 
         .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin: 40px 0 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            text-align: center; font-size: 2.5rem; margin: 60px 0 20px; font-weight: 700; text-transform: uppercase;
+        }
+        .section-title span {
+            color: var(--gold-primary); font-family: 'Playfair Display', serif; text-transform: none; font-style: italic; font-weight: 400; display: block; font-size: 1.8rem; margin-top: 5px;
+        }
+        .section-title::after {
+            content: ''; display: block; width: 80px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold-primary), transparent); margin: 20px auto 0;
         }
 
-        .reglementation-section {
-            padding: 20px 0 60px;
-            flex: 1;
+        /* HEADER & NAVBAR */
+        header {
+            background-color: rgba(12, 42, 69, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(197, 160, 89, 0.15); position: sticky; top: 0; z-index: 1000;
+        }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
+        .logo img { height: 85px; width: auto; display: block; transition: var(--transition); }
+        nav ul { display: flex; align-items: center; gap: 25px; }
+        nav ul li a { font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
+        nav ul li a:hover, nav ul li a.active { color: var(--gold-primary); }
+        .btn-nav { border: 1px solid var(--gold-primary) !important; color: var(--gold-primary) !important; padding: 10px 20px; border-radius: 4px; }
+        .btn-nav:hover { background-color: var(--gold-primary); color: var(--bg-dark-custom) !important; }
+
+        /* TEXTE ET BLOCS RÉGLEMENTATION */
+        .intro-text {
+            text-align: center; color: var(--text-muted); font-size: 1.1rem; max-width: 750px; margin: 0 auto 60px; font-weight: 300;
+        }
+        .law-grid {
+            display: flex; flex-direction: column; gap: 30px; margin-bottom: 80px;
+        }
+        .law-card {
+            background: var(--bg-card-glow); border: 1px solid rgba(197, 160, 89, 0.15); padding: 40px; border-radius: 6px; display: flex; gap: 30px; align-items: flex-start;
+        }
+        .law-icon {
+            font-size: 2.5rem; color: var(--gold-primary); background: rgba(197, 160, 89, 0.08); padding: 20px; border-radius: 6px; border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .law-content h3 {
+            font-size: 1.4rem; color: var(--white-pure); margin-bottom: 12px; font-weight: 600;
+        }
+        .law-content p {
+            color: var(--text-muted); font-size: 1rem; font-weight: 300; margin-bottom: 15px;
+        }
+        .law-tags {
+            display: flex; gap: 10px; flex-wrap: wrap;
+        }
+        .tag {
+            background-color: var(--bg-dark-custom); border: 1px solid var(--gold-primary); color: var(--gold-primary); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; padding: 4px 12px; border-radius: 3px; letter-spacing: 0.5px;
         }
 
-        .btn-back {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: var(--primary-blue);
-            font-weight: 600;
-        }
+        /* FOOTER */
+        footer { background-color: #061829; border-top: 1px solid rgba(197, 160, 89, 0.15); color: var(--text-muted); padding: 40px 0; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .socials { display: flex; gap: 25px; font-size: 1.4rem; }
+        .socials a { color: var(--text-muted); }
+        .socials a:hover { color: var(--gold-primary); transform: translateY(-3px); }
 
-        .map-container {
-            position: relative;
-            width: 100%;
-            height: 600px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin-top: 30px;
-            background: #e5e3df;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .info-box {
-            background: var(--white);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
-            border-left: 5px solid var(--primary-blue);
-        }
-
-        .info-box h3 {
-            margin-bottom: 10px;
-            color: var(--dark-slate);
-        }
-
-        .info-box p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Bouton personnalisé pour Géoportail */
-        .btn-map-link {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
-            color: var(--white);
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-weight: 600;
-            margin-top: 15px;
-            box-shadow: 0 4px 10px rgba(28, 82, 163, 0.2);
-        }
-
-        .btn-map-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(28, 82, 163, 0.3);
-        }
-
-        footer {
-            background-color: var(--dark-slate);
-            color: var(--white);
-            padding: 30px 0;
-            font-size: 0.9rem;
-            margin-top: auto;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .socials {
-            display: flex;
-            gap: 20px;
-            font-size: 1.2rem;
-        }
-
-        .socials a:hover { color: var(--light-blue); }
-        .socials a.YT:hover { color: #FF0000; }
-        .socials a.IG:hover i {
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-            display: inline-block;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* RESPONSIVE SMARTPHONE (Menu Tactile CSS) */
         @media (max-width: 768px) {
-            .menu-icon {
-                display: block;
-                font-size: 1.8rem;
-                color: var(--dark-slate);
-                cursor: pointer;
-                z-index: 1001;
-            }
-
-            nav {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--white);
-                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease-in-out;
-            }
-
-            nav ul {
-                flex-direction: column;
-                padding: 20px;
-                gap: 20px;
-                align-items: flex-start;
-            }
-
-            nav ul li {
-                width: 100%;
-            }
-
-            nav ul li a {
-                display: block;
-                width: 100%;
-                padding: 5px 0;
-            }
-
-            .menu-toggle:checked ~ nav {
-                max-height: 350px;
-            }
-
-            .map-container { height: 400px; }
-            .footer-content { flex-direction: column; gap: 15px; text-align: center; }
+            .law-card { flex-direction: column; text-align: center; align-items: center; padding: 30px 20px; }
+            .footer-content { flex-direction: column; gap: 20px; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Barre de navigation -->
     <header>
-        <div class="navbar container">
-            <div class="logo">
-                <a href="index.html">
-                    <!-- CORRECTION : Logo calé à la racine -->
-                    <img src="Logo UM.png" alt="UpMotion Logo">
-                </a>
-            </div>
-
-            <input type="checkbox" id="menu-toggle" class="menu-toggle">
-            <label for="menu-toggle" class="menu-icon"><i class="fa-solid fa-bars"></i></label>
-
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <img src="images/new logo upmotion.png" alt="UpMotion Studio">
+            </a>
             <nav>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
-                    <li><a href="index.html#services">Services</a></li>
                     <li><a href="galerie.html">Galerie</a></li>
                     <li><a href="reglementation.html" class="active">Réglementation</a></li>
-                    <li><a href="index.html#materiels">Matériels</a></li>
-                    <li><a href="index.html#contact" class="btn-nav">Contactez-nous</a></li>
+                    <li><a href="index.html#contact" class="btn-nav">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Zone Contenu Réglementation -->
-    <main class="container reglementation-section">
-        <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Retour à l'accueil</a>
-        <h1 class="section-title">Cadre Réglementaire</h1>
+    <main class="container">
+        <h2 class="section-title">Cadre Légal <span>La sécurité et la conformité au cœur de nos vols</span></h2>
+        <p class="intro-text">L'utilisation commerciale de drones est strictement encadrée par la DGAC et la réglementation européenne. UpMotion Studio opère en toute transparence pour garantir la sécurité absolue de vos tournages.</p>
 
-        <div class="info-box">
-            <h3><i class="fa-solid fa-shield-halved"></i> Sécurité et Conformité des vols</h3>
-            <p>
-                Chez <strong>UpMotion</strong>, la sécurité est notre priorité absolue. Chaque mission est préparée minutieusement en vérifiant les espaces aériens, les restrictions locales et les protocoles nécessaires (zones peuplées, zones CTR d'aéroports, espaces militaires réglementés). Nous opérons en parfaite conformité avec la réglementation de la DGAC.
-            </p>
-        </div>
+        <div class="law-grid">
+            <!-- Bloc 1 : Scénarios de vol -->
+            <div class="law-card">
+                <div class="law-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                <div class="law-content">
+                    <h3>Scénarios Opérationnels Certifiés</h3>
+                    <p>Nous sommes habilités à opérer selon les différents cadres de vol professionnels de la catégorie Spécifique, nous permettant d'intervenir aussi bien en pleine nature (châteaux, domaines viticoles) qu'au cœur de zones peuplées et agglomérations (villes, propriétés privées urbaines).</p>
+                    <div class="law-tags">
+                        <span class="tag">Scénario S1</span>
+                        <span class="tag">Scénario S3 (Urbain)</span>
+                        <span class="tag">Catégorie Spécifique</span>
+                    </div>
+                </div>
+            </div>
 
-        <div class="info-box" style="border-left-color: #e67e22;">
-            <h3><i class="fa-solid fa-map-location-dot"></i> Carte des restrictions UAS (Catégorie Ouverte)</h3>
-            <p>
-                Consultez ci-dessous la carte officielle interactive. Elle recense les hauteurs maximales de vol autorisées pour les drones en France. Les zones rouges représentent des interdictions strictes.
-            </p>
-            <!-- CORRECTION : Gros bouton d'accès direct de secours pour mobile et cas de blocage d'iframe -->
-            <a href="https://www.geoportail.gouv.fr/donnees/restrictions-uas-categorie-ouverte-et-aeromodelisme" target="_blank" class="btn-map-link">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i> Ouvrir la carte officielle sur Géoportail
-            </a>
-        </div>
+            <!-- Bloc 2 : MANEX et protocoles -->
+            <div class="law-card">
+                <div class="law-icon"><i class="fa-solid fa-file-shield"></i></div>
+                <div class="law-content">
+                    <h3>MANEX & Démarches Préfectorales</h3>
+                    <p>Chaque mission fait l'objet d'une étude de sécurité approfondie. UpMotion Studio dispose de son propre Manuel d'Activités Particulières (MANEX) à jour et gère l'intégralité des demandes d'autorisations obligatoires auprès des préfectures (Drôme, Ardèche et sur toute la France).</p>
+                    <div class="law-tags">
+                        <span class="tag">MANEX conforme DGAC</span>
+                        <span class="tag">Déclarations AlphaTango</span>
+                        <span class="tag">Préavis Préfecture</span>
+                    </div>
+                </div>
+            </div>
 
-        <!-- 🗺️ INTÉGRATION DE LA CARTE GÉOPORTAIL -->
-        <div class="map-container">
-            <iframe src="https://www.geoportail.gouv.fr/embed/visu.html?c=2.3488,48.8566&z=6&l=GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN-EXpress::GEOPORTAIL:OGC:WMTS(1)+RESTRICTIONS_POUR_DRONES_DE_LOISIR::GEOPORTAIL:OGC:WMTS(0.7)&permalink=no" allowfullscreen></iframe>
+            <!-- Bloc 3 : Assurances -->
+            <div class="law-card">
+                <div class="law-icon"><i class="fa-solid fa-building-shield"></i></div>
+                <div class="law-content">
+                    <h3>Assurance Responsabilité Civile Pro</h3>
+                    <p>Parce que la sérénité de nos clients est une priorité, notre structure est couverte par une assurance Responsabilité Civile (RC) professionnelle aéronautique spécifique. Elle couvre l'intégralité des dommages corporels et matériels pouvant survenir durant une exploitation commerciale.</p>
+                    <div class="law-tags">
+                        <span class="tag">RC Pro Aéronautique</span>
+                        <span class="tag">Couverture Tiers</span>
+                        <span class="tag">Zéro Risque Client</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
-    <!-- Pied de page -->
     <footer>
         <div class="container footer-content">
-            <p>&copy; 2026 UpMotion - Imagerie par drone et caméra. Tous droits réservés.</p>
+            <p>&copy; 2026 UpMotion Studio. Tous droits réservés.</p>
             <div class="socials">
-                <a href="https://www.instagram.com/upmotion_studio/" class="IG" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.youtube.com/watch?v=jHCxGhSWiu4" class="YT" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://instagram.com/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://youtube.com/" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="mailto:fducourthial@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
             </div>
         </div>
     </footer>
