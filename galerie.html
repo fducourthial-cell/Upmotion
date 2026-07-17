@@ -53,16 +53,6 @@
         .btn-nav { border: 1px solid var(--gold-primary) !important; color: var(--gold-primary) !important; padding: 10px 20px; border-radius: 4px; }
         .btn-nav:hover { background-color: var(--gold-primary); color: var(--bg-dark-custom) !important; }
 
-        /* FILTRES DE LA GALERIE */
-        .gallery-filter {
-            display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; flex-wrap: wrap;
-        }
-        .filter-btn {
-            background: transparent; color: var(--white-pure); border: 1px solid rgba(255,255,255,0.15); padding: 10px 24px; border-radius: 4px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; cursor: pointer; letter-spacing: 1px; transition: var(--transition);
-        }
-        .filter-btn:hover, .filter-btn.active {
-            border-color: var(--gold-primary); color: var(--gold-primary); background-color: rgba(197, 160, 89, 0.05);
-        }
 
         /* GRILLE DE LA GALERIE */
         .gallery-grid {
@@ -120,14 +110,6 @@
 
     <main class="container">
         <h2 class="section-title">Portfolio <span>Découvrez nos réalisations phares</span></h2>
-
-        <!-- Système de filtrage (Prêt pour de l'interactivité ou du tri) -->
-        <div class="gallery-filter">
-            <button class="filter-btn active">Tout</button>
-            <button class="filter-btn">Événementiel</button>
-            <button class="filter-btn">Immobilier</button>
-            <button class="filter-btn">Tourisme</button>
-        </div>
 
         <div class="gallery-grid">
             <!-- Élément 1 : Exemple Photo Drone (Château) -->
