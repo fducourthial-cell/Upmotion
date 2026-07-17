@@ -90,6 +90,80 @@
             .law-card { flex-direction: column; text-align: center; align-items: center; padding: 30px 20px; }
             .footer-content { flex-direction: column; gap: 20px; text-align: center; }
         }
+        /* Style du bloc Géoportail */
+        .geoportail-box {
+            background: linear-gradient(135deg, var(--bg-card-glow), rgba(19, 55, 89, 0.2));
+            border: 1px solid var(--gold-primary);
+            border-radius: 6px;
+            padding: 40px;
+            margin-top: 50px;
+            margin-bottom: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            box-shadow: 0 15px 35px rgba(12, 42, 69, 0.5);
+            text-align: left;
+        }
+
+        .geoportail-content {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex: 1;
+        }
+
+        .geoportail-icon {
+            font-size: 2.5rem;
+            color: var(--gold-primary);
+            background: rgba(197, 160, 89, 0.1);
+            padding: 20px;
+            border-radius: 50%;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 75px;
+            height: 75px;
+        }
+
+        .geoportail-text h3 {
+            font-size: 1.4rem;
+            color: var(--white-pure);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .geoportail-text p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .geoportail-btn {
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Responsive pour petits écrans */
+        @media (max-width: 850px) {
+            .geoportail-box {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+            .geoportail-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .geoportail-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -157,6 +231,19 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- BLOC GÉOPORTAIL RESTRICTIONS DRONE -->
+        <div class="geoportail-box">
+            <div class="geoportail-content">
+                <div class="geoportail-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                <div class="geoportail-text">
+                    <h3>Vérifiez les restrictions de vol de votre zone</h3>
+                    <p>Votre domaine ou votre événement se situe-t-il dans une zone réglementée (proximité d'un aérodrome, zone militaire, agglomération) ? Accédez directement à la carte officielle de l'aviation civile sur Géoportail pour visualiser les hauteurs de vol autorisées.</p>
+                </div>
+            </div>
+            <a href="https://www.geoportail.gouv.fr/carte" target="_blank" class="btn-primary geoportail-btn">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Ouvrir Géoportail Drone
+            </a>
         </div>
     </main>
 
