@@ -259,6 +259,7 @@
         }
 
         /* SECTIONS PRESTATIONS */
+       /* Ajustements pour la grille de prestations */
         .services {
             padding: 100px 0;
             background-color: rgba(19, 55, 89, 0.4);
@@ -268,26 +269,58 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            align-items: stretch; /* Force tous les liens de la grille à avoir la même hauteur */
         }
 
+        /* La carte lien prend désormais 100% de la hauteur imposée par la grille */
         .service-card {
+            display: flex !important;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            height: 100%;
+        }
+
+        /* Conteneur interne de la carte qui gère l'affichage visuel */
+        .service-card-content {
             background: var(--bg-card-glow);
-            border: 1px solid rgba(197, 160, 89, 0.1);
+            border: 1px solid rgba(197, 160, 89, 0.15);
             border-radius: 6px;
             padding: 40px 30px;
+            height: 100%; /* Remplit tout l'espace */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Aligne les icônes et textes à gauche */
+            text-align: left;
             transition: var(--transition);
         }
 
-        .service-card:hover {
+        /* L'effet au survol s'applique maintenant sur le conteneur interne */
+        .service-card:hover .service-card-content {
             transform: translateY(-8px);
             border-color: var(--gold-primary);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
         }
 
         .service-icon {
             font-size: 2.5rem;
             color: var(--gold-primary);
             margin-bottom: 25px;
+            display: block;
+        }
+
+        .service-card-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: var(--white-pure);
+        }
+
+        .service-card-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.6;
         }
 
         /* SECTION VIDÉO VITRINE */
@@ -659,27 +692,40 @@
     </section>
 
     <!-- PRESTATIONS -->
-    <section class="services">
-        <div class="services-grid">
+    <section id="services" class="services">
+        <div class="container">
+            <!-- Le titre réintégré ici -->
+            <h2 class="section-title">Nos Prestations <span>Des solutions visuelles sur mesure</span></h2>
+            
+            <div class="services-grid">
                 <!-- Événementiel -->
                 <a href="evenementiel.html" class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-ring"></i></div>
-                    <h3>Événementiel</h3>
-                    <p>Sublimez vos mariages, festivals et grands rassemblements avec des prises de vues aériennes mémorables. Cliquez pour voir nos réalisations.</p>
+                    <div class="service-card-content">
+                        <div class="service-icon"><i class="fa-solid fa-ring"></i></div>
+                        <h3>Événementiel</h3>
+                        <p>Sublimez vos mariages, festivals et grands rassemblements avec des prises de vues aériennes mémorables. Cliquez pour voir nos réalisations.</p>
+                    </div>
                 </a>
+
                 <!-- Immobilier -->
                 <a href="immobilier.html" class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-house-user"></i></div>
-                    <h3>Immobilier</h3>
-                    <p>Packs complets mariant vues de drone extérieures et visites immersives intérieures à 360° pour vos biens. Cliquez pour voir nos réalisations.</p>
+                    <div class="service-card-content">
+                        <div class="service-icon"><i class="fa-solid fa-house-user"></i></div>
+                        <h3>Immobilier</h3>
+                        <p>Packs complets mariant vues de drone extérieures et visites immersives intérieures à 360° pour vos biens. Cliquez pour voir nos réalisations.</p>
+                    </div>
                 </a>
-                <!-- Tourisme & Communes -->
+
+                <!-- Tourisme & Patrimoine -->
                 <a href="tourisme.html" class="service-card">
-                    <div class="service-icon"><i class="fa-solid fa-gopuram"></i></div>
-                    <h3>Tourisme & Patrimoine</h3>
-                    <p>Mettez en valeur l'attractivité de vos territoires, gîtes de prestige et monuments historiques régionaux. Cliquez pour voir nos réalisations.</p>
+                    <div class="service-card-content">
+                        <div class="service-icon"><i class="fa-solid fa-gopuram"></i></div>
+                        <h3>Tourisme & Patrimoine</h3>
+                        <p>Mettez en valeur l'attractivité de vos territoires, gîtes de prestige et monuments historiques régionaux. Cliquez pour voir nos réalisations.</p>
+                    </div>
                 </a>
             </div>
+        </div>
     </section>
     <!-- SECTION MATÉRIEL -->
     <section id="materiels" class="materiels-section">
