@@ -686,49 +686,49 @@
         </div>
     </section>
 
-    <!-- CONTACT -->
-   <!-- CONTACT AVEC SÉLECTION DE PROJET -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Un projet en tête ? <span>Contactez-nous</span></h2>
-            <div class="contact-box">
-                <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
-                    <input type="hidden" name="access_key" value="8be19758-3cda-453e-a5c7-c02b48be96aa">
-                    
-                    <!-- Informations de contact -->
-                    <input type="text" name="name" placeholder="Votre nom" required>
-                    <input type="email" name="email" placeholder="Votre email" required>
-                    
-                    <!-- Sélection du type de projet (Cases à cocher premium) -->
-                    <div class="project-type-container">
-                        <p class="project-label">Votre projet concerne :</p>
-                        <div class="checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="type_projet[]" value="Événementiel">
-                                <span class="custom-checkbox"></span>
-                                Événementiel
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="type_projet[]" value="Immobilier">
-                                <span class="custom-checkbox"></span>
-                                Immobilier
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="type_projet[]" value="Tourisme & Communes">
-                                <span class="custom-checkbox"></span>
-                                Tourisme & Communes
-                            </label>
-                        </div>
+     <!-- Contact -->
+ <section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-title">Un projet en tête ? <span>Contactez-nous</span></h2>
+        
+        <div class="contact-box">
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                <input type="hidden" name="access_key" value="8be19758-3cda-453e-a5c7-c02b48be96aa">
+                
+                <!-- Les champs nom et email -->
+                <input type="text" name="name" placeholder="Votre nom" required>
+                <input type="email" name="email" placeholder="Votre email" required>
+                
+                <!-- Sélection du type de projet -->
+                <div class="project-type-container">
+                    <p class="project-label">Votre projet concerne :</p>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="type_projet[]" value="Événementiel">
+                            <span class="custom-checkbox"></span>
+                            Événementiel
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="type_projet[]" value="Immobilier">
+                            <span class="custom-checkbox"></span>
+                            Immobilier
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="type_projet[]" value="Tourisme & Communes">
+                            <span class="custom-checkbox"></span>
+                            Tourisme & Communes
+                        </label>
                     </div>
-                    
-                    <!-- Corps du message -->
-                    <textarea name="message" rows="5" placeholder="Détails de votre projet (date, lieu, attentes particulières...)" required></textarea>
-                    
-                    <button type="submit" class="btn-primary">Envoyer le message</button>
-                </form>
-            </div>
+                </div>
+                
+                <!-- Corps du message -->
+                <textarea name="message" rows="5" placeholder="Détails de votre projet (date, lieu, attentes particulières...)" required></textarea>
+                
+                <button type="submit" class="btn-primary">Envoyer le message</button>
+            </form>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- FOOTER (Garde vos réseaux sociaux d'origine : Instagram, YouTube, Mail) -->
     <footer>
