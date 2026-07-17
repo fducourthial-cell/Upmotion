@@ -487,6 +487,93 @@
                 text-align: center;
             }
         }
+        /* Styles pour la Section Matériel */
+        .materiels-section {
+            padding: 100px 0;
+            background-color: var(--bg-dark-custom);
+        }
+
+        .materiel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .materiel-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .materiel-card {
+            background: rgba(19, 55, 89, 0.4);
+            border: 1px solid rgba(197, 160, 89, 0.15);
+            border-radius: 6px;
+            padding: 40px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .materiel-card:hover {
+            border-color: var(--gold-primary);
+            box-shadow: 0 15px 35px rgba(197, 160, 89, 0.08);
+            transform: translateY(-5px);
+        }
+
+        .materiel-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(197, 160, 89, 0.15);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 3px;
+            letter-spacing: 0.5px;
+        }
+
+        .materiel-card h3 {
+            font-size: 1.8rem;
+            color: var(--white-pure);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .materiel-type {
+            color: var(--gold-primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .materiel-specs {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .materiel-specs li {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .materiel-specs li i {
+            color: var(--gold-primary);
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -505,6 +592,7 @@
                 <ul>
                     <li><a href="index.html" class="active">Accueil</a></li>
                     <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="#materiels">Matériel</a></li>
                     <li><a href="reglementation.html">Réglementation</a></li>
                     <li><a href="#contact" class="btn-nav">Contact</a></li>
                 </ul>
@@ -549,6 +637,38 @@
                     <div class="service-icon"><i class="fa-solid fa-gopuram"></i></div>
                     <h3>Patrimoine & Communes</h3>
                     <p>Mettez en valeur l'attractivité de vos territoires, gîtes de prestige et monuments historiques régionaux.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SECTION MATÉRIEL -->
+    <section id="materiels" class="materiels-section">
+        <div class="container">
+            <h2 class="section-title">Notre Matériel <span>Une technologie de pointe pour des images d'excellence</span></h2>
+            
+            <div class="materiel-grid">
+                <!-- Drone Principal -->
+                <div class="materiel-card">
+                    <div class="materiel-badge">Flotte Principale</div>
+                    <h3>DJI Air 3S</h3>
+                    <p class="materiel-type">Drone Homologué DGAC (Catégorie Spécifique & Ouverte)</p>
+                    <ul class="materiel-specs">
+                        <li><i class="fa-solid fa-camera"></i> Double caméra pro (Capteur principal 1 pouce)</li>
+                        <li><i class="fa-solid fa-video"></i> Prises de vues aériennes 4K HDR de nuit comme de jour</li>
+                        <li><i class="fa-solid fa-shield-halved"></i> Détection d'obstacles omnidirectionnelle par LiDAR (Sécurité maximale)</li>
+                    </ul>
+                </div>
+
+                <!-- Caméra 360 -->
+                <div class="materiel-card">
+                    <div class="materiel-badge">Solutions Immersives</div>
+                    <h3>Insta360 ONE X2</h3>
+                    <p class="materiel-type">Captation Terrestre & Intérieure 360°</p>
+                    <ul class="materiel-specs">
+                        <li><i class="fa-solid fa-vr-cardboard"></i> Visites virtuelles intérieures totalement immersives à 360°</li>
+                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> Stabilisation FlowState pour des mouvements d'une fluidité parfaite</li>
+                        <li><i class="fa-solid fa-expand"></i> Idéal pour la mise en valeur de l'immobilier et des intérieurs de domaines</li>
+                    </ul>
                 </div>
             </div>
         </div>
