@@ -1,65 +1,342 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <!-- Script et Styles pour la visionneuse 360 Pannellum -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galerie Immobilier - UpMotion Studio</title>
+    <!-- Importation des polices premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Script et Styles essentiels pour la visionneuse 360 Pannellum -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
     <style>
+        /* ==========================================================================
+           CHARTE GRAPHIQUE UP MOTION (FOND #0C2A45)
+           ========================================================================== */
         :root {
-            --bg-dark-custom: #0C2A45; --bg-card-glow: #133759; --gold-primary: #c5a059;
-            --gold-light: #e5cda1; --white-pure: #ffffff; --text-muted: #b2c4d4; --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --bg-dark-custom: #0C2A45; /* Bleu royal personnalisé */
+            --bg-card-glow: #133759;   /* Version légèrement plus claire pour détacher les cartes */
+            --gold-primary: #c5a059;   /* Or mat officiel */
+            --gold-light: #e5cda1;     /* Or clair éclatant */
+            --white-pure: #ffffff;     /* Blanc pur */
+            --text-muted: #b2c4d4;     /* Gris bleuté clair */
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background-color: var(--bg-dark-custom); color: var(--white-pure); line-height: 1.6; }
-        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
-        a { text-decoration: none; color: inherit; transition: var(--transition); }
-        
-        /* HEADER & NAVBAR */
-        header { background-color: rgba(12, 42, 69, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(197, 160, 89, 0.15); position: sticky; top: 0; z-index: 1000; }
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
-        .logo img { height: 85px; width: auto; display: block; }
-        nav ul { display: flex; align-items: center; gap: 25px; list-style: none; }
-        nav ul li a { font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
-        nav ul li a:hover, nav ul li a.active { color: var(--gold-primary); }
-        .btn-nav { border: 1px solid var(--gold-primary) !important; color: var(--gold-primary) !important; padding: 10px 20px; border-radius: 4px; }
 
-        .section-title { text-align: center; font-size: 2.5rem; margin: 60px 0 20px; font-weight: 700; text-transform: uppercase; }
-        .section-title span { color: var(--gold-primary); font-family: 'Playfair Display', serif; text-transform: none; font-style: italic; font-weight: 400; display: block; font-size: 1.8rem; margin-top: 5px; }
-        .section-title::after { content: ''; display: block; width: 80px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold-primary), transparent); margin: 20px auto 0; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        .back-nav { margin-bottom: 30px; display: inline-flex; align-items: center; gap: 8px; color: var(--gold-primary); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
-        .back-nav:hover { color: var(--white-pure); transform: translateX(-5px); }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark-custom);
+            color: var(--white-pure);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-        /* GRILLE */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; margin-bottom: 80px; }
-        .gallery-item { background: var(--bg-card-glow); border: 1px solid rgba(197, 160, 89, 0.1); border-radius: 6px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: var(--transition); }
-        .gallery-item:hover { transform: translateY(-5px); border-color: var(--gold-primary); }
-        .media-container { position: relative; width: 100%; padding-bottom: 56.25%; overflow: hidden; background-color: #000; }
-        .media-container img, .media-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
-        .item-info { padding: 20px; }
-        .item-info h3 { font-size: 1.15rem; margin-bottom: 8px; font-weight: 600; }
-        .item-info p { color: var(--text-muted); font-size: 0.9rem; font-weight: 300; }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-        footer { background-color: #061829; border-top: 1px solid rgba(197, 160, 89, 0.15); color: var(--text-muted); padding: 40px 0; margin-top: 60px; }
-        .footer-content { display: flex; justify-content: space-between; align-items: center; }
-        .socials { display: flex; gap: 25px; font-size: 1.4rem; }
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* TITRE DE SECTION PRÉMIUM */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 40px 0 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title span {
+            color: var(--gold-primary);
+            font-family: 'Playfair Display', serif;
+            text-transform: none;
+            font-style: italic;
+            font-weight: 400;
+            display: block;
+            font-size: 1.8rem;
+            margin-top: 5px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+            margin: 20px auto 0;
+        }
+
+        /* LIEN DE RETOUR À LA GALERIE */
+        .back-nav {
+            margin-top: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gold-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .back-nav:hover {
+            color: var(--white-pure);
+            transform: translateX(-5px);
+        }
+
+        /* BARRE DE NAVIGATION COMMUNE (Ordre exact demandé) */
+        header {
+            background-color: rgba(12, 42, 69, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+        }
+
+        .logo img {
+            height: 85px;
+            width: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--gold-primary);
+        }
+
+        .btn-nav {
+            border: 1px solid var(--gold-primary) !important;
+            color: var(--gold-primary) !important;
+            padding: 10px 20px;
+            border-radius: 4px;
+        }
+
+        .btn-nav:hover {
+            background-color: var(--gold-primary);
+            color: var(--bg-dark-custom) !important;
+        }
+
+        /* STRUCTURE DE LA VISIONNEUSE INTERACTIVE 360° */
+        .viewer-360-container {
+            background: var(--bg-card-glow);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: 6px;
+            padding: 30px;
+            margin-top: 30px;
+            margin-bottom: 50px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .viewer-header {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .viewer-header h3 {
+            font-size: 1.4rem;
+            color: var(--white-pure);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .viewer-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 5px;
+            font-weight: 300;
+        }
+
+        #panorama {
+            width: 100%;
+            height: 480px; /* Hauteur idéale pour l'immersion */
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Personnalisation or des éléments de contrôle Pannellum */
+        .pnlm-control {
+            background-color: var(--bg-dark-custom) !important;
+            color: var(--gold-primary) !important;
+            border: 1px solid rgba(197, 160, 89, 0.3) !important;
+        }
+        .pnlm-compass {
+            color: var(--gold-primary) !important;
+        }
+
+        /* GRILLE CLASSIQUE DES MÉDIAS IMMOBILIER */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 80px;
+        }
+
+        .gallery-item {
+            background: var(--bg-card-glow);
+            border: 1px solid rgba(197, 160, 89, 0.1);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+            box-shadow: 0 15px 40px rgba(197, 160, 89, 0.15);
+        }
+
+        .media-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Ratio 16:9 pro */
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .media-container img, .media-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .media-container img {
+            transform: scale(1.04);
+        }
+
+        .item-info {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .item-info h3 {
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--white-pure);
+        }
+
+        .item-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        /* PIED DE PAGE (FOOTER) */
+        footer {
+            background-color: #061829;
+            border-top: 1px solid rgba(197, 160, 89, 0.15);
+            color: var(--text-muted);
+            padding: 40px 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .socials {
+            display: flex;
+            gap: 25px;
+            font-size: 1.4rem;
+        }
+
+        .socials a {
+            color: var(--text-muted);
+        }
+
+        .socials a:hover {
+            color: var(--gold-primary);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            #panorama {
+                height: 350px; /* Plus petit sur mobile */
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
+
+    <!-- BARRE DE NAVIGATION COMMUNE -->
     <header>
         <div class="container navbar">
-            <a href="index.html" class="logo"><img src="images/test logo.png" alt="UpMotion Studio"></a>
+            <a href="index.html" class="logo">
+                <img src="images/test logo.png" alt="UpMotion Studio">
+            </a>
+            
             <nav>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
-                    <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="galerie.html" class="active">Galerie</a></li>
                     <li><a href="index.html#services">Prestations</a></li>
                     <li><a href="index.html#materiels">Matériel</a></li>
                     <li><a href="reglementation.html">Réglementation</a></li>
@@ -69,32 +346,75 @@
         </div>
     </header>
 
-    <main class="container" style="margin-top: 40px;">
+    <!-- ACCUEIL CONTENU IMMOBILIER -->
+    <main class="container">
+        <!-- Lien de retour rapide -->
         <a href="galerie.html" class="back-nav"><i class="fa-solid fa-arrow-left"></i> Retour à la galerie globale</a>
+        
         <h2 class="section-title">Immobilier <span>Valorisation de biens & Visites 360°</span></h2>
 
+        <!-- VISIONNEUSE INTERACTIVE 360° ACTIVED -->
+        <div class="viewer-360-container">
+            <div class="viewer-header">
+                <h3><i class="fa-solid fa-vr-cardboard"></i> Démo Interactive : Visite Virtuelle Intérieure</h3>
+                <p>Cliquez et déplacez votre souris (ou votre doigt sur smartphone) à l'intérieur du panorama pour tester l'expérience immersive Insta360.</p>
+            </div>
+            
+            <!-- Emplacement du lecteur interactif -->
+            <div id="panorama"></div>
+        </div>
+
+        <!-- GRILLE COMPLÉMENTAIRE DE PHOTO / VIDÉO CLASSIQUE -->
         <div class="gallery-grid">
-            <!-- Exemple d'image avec fond UM -->
+            
+            <!-- Exemple 1 : Photo de drone classique avec votre image de fond -->
             <div class="gallery-item">
                 <div class="media-container">
-                    <img src="images/fond UM.png" alt="Villa contemporaine" style="object-position: right;">
+                    <img src="images/fond UM.png" alt="Propriété de prestige vue du ciel">
                 </div>
                 <div class="item-info">
-                    <h3>Propriété d'Architecte avec Piscine</h3>
-                    <p>Combinaison Drone (extérieur) & Intérieur Immersif 360° — Prestation Premium</p>
+                    <h3>Propriété d'Architecte</h3>
+                    <p>Prise de vue aérienne 4K — Cadrage extérieur grand angle pour valorisation foncière.</p>
                 </div>
             </div>
+
+            <!-- Exemple 2 : Espace prêt pour accueillir une autre réalisation -->
+            <div class="gallery-item">
+                <div class="media-container">
+                    <img src="images/fond UM.png" alt="Suivi de chantier ou villa contemporaine" style="object-position: right;">
+                </div>
+                <div class="item-info">
+                    <h3>Résidence Contemporaine</h3>
+                    <p>Pack Drone + Visite Virtuelle Intérieure — Optimisé pour les agences immobilières.</p>
+                </div>
+            </div>
+
         </div>
     </main>
 
+    <!-- PIED DE PAGE -->
     <footer>
         <div class="container footer-content">
             <p>&copy; 2026 UpMotion Studio. Tous droits réservés.</p>
             <div class="socials">
-                <a href="https://instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://instagram.com/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://youtube.com/" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="mailto:fducourthial@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
             </div>
         </div>
     </footer>
+
+    <!-- LOGIQUE JAVASCRIPT : Lance et gère le panorama 360 -->
+    <script>
+        // Initialisation de Pannellum avec une image témoin équirectangulaire haute définition
+        pannellum.viewer('panorama', {
+            type: 'equirectangular',
+            panorama: 'https://pannellum.org/images/alma.jpg', /* Image d'exemple officielle à remplacer par vos exports Insta360 */
+            autoLoad: true,
+            compass: true,
+            northOffset: 247
+        });
+    </script>
+
 </body>
 </html>
