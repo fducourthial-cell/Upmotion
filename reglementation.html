@@ -26,13 +26,14 @@
             background-color: var(--bg-dark-custom);
             color: var(--white-pure);
             line-height: 1.7;
+            overflow-x: hidden;
         }
         .container { width: 90%; max-width: 1000px; margin: 0 auto; }
         a { text-decoration: none; color: inherit; transition: var(--transition); }
         ul { list-style: none; }
 
         .section-title {
-            text-align: center; font-size: 2.5rem; margin: 60px 0 20px; font-weight: 700; text-transform: uppercase;
+            text-align: center; font-size: 2.5rem; margin: 60px 0 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
         }
         .section-title span {
             color: var(--gold-primary); font-family: 'Playfair Display', serif; text-transform: none; font-style: italic; font-weight: 400; display: block; font-size: 1.8rem; margin-top: 5px;
@@ -53,12 +54,36 @@
         .btn-nav { border: 1px solid var(--gold-primary) !important; color: var(--gold-primary) !important; padding: 10px 20px; border-radius: 4px; }
         .btn-nav:hover { background-color: var(--gold-primary); color: var(--bg-dark-custom) !important; }
 
+        /* MENU BURGER MOBILE */
+        .menu-toggle, .menu-icon { display: none; }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-light));
+            color: #0C2A45;
+            padding: 14px 35px;
+            border-radius: 4px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.2);
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(197, 160, 89, 0.4);
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+        }
+
         /* TEXTE ET BLOCS RÉGLEMENTATION */
         .intro-text {
             text-align: center; color: var(--text-muted); font-size: 1.1rem; max-width: 750px; margin: 0 auto 60px; font-weight: 300;
         }
         .law-grid {
-            display: flex; flex-direction: column; gap: 30px; margin-bottom: 80px;
+            display: flex; flex-direction: column; gap: 30px; margin-bottom: 60px;
         }
         .law-card {
             background: var(--bg-card-glow); border: 1px solid rgba(197, 160, 89, 0.15); padding: 40px; border-radius: 6px; display: flex; gap: 30px; align-items: flex-start;
@@ -79,18 +104,7 @@
             background-color: var(--bg-dark-custom); border: 1px solid var(--gold-primary); color: var(--gold-primary); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; padding: 4px 12px; border-radius: 3px; letter-spacing: 0.5px;
         }
 
-        /* FOOTER */
-        footer { background-color: #061829; border-top: 1px solid rgba(197, 160, 89, 0.15); color: var(--text-muted); padding: 40px 0; }
-        .footer-content { display: flex; justify-content: space-between; align-items: center; }
-        .socials { display: flex; gap: 25px; font-size: 1.4rem; }
-        .socials a { color: var(--text-muted); }
-        .socials a:hover { color: var(--gold-primary); transform: translateY(-3px); }
-
-        @media (max-width: 768px) {
-            .law-card { flex-direction: column; text-align: center; align-items: center; padding: 30px 20px; }
-            .footer-content { flex-direction: column; gap: 20px; text-align: center; }
-        }
-        /* Style du bloc Géoportail */
+        /* BLOC GÉOPORTAIL RESTRICTIONS DRONE */
         .geoportail-box {
             background: linear-gradient(135deg, var(--bg-card-glow), rgba(19, 55, 89, 0.2));
             border: 1px solid var(--gold-primary);
@@ -125,6 +139,7 @@
             justify-content: center;
             width: 75px;
             height: 75px;
+            flex-shrink: 0;
         }
 
         .geoportail-text h3 {
@@ -148,7 +163,14 @@
             gap: 10px;
         }
 
-        /* Responsive pour petits écrans */
+        /* FOOTER */
+        footer { background-color: #061829; border-top: 1px solid rgba(197, 160, 89, 0.15); color: var(--text-muted); padding: 40px 0; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .socials { display: flex; gap: 25px; font-size: 1.4rem; }
+        .socials a { color: var(--text-muted); }
+        .socials a:hover { color: var(--gold-primary); transform: translateY(-3px); }
+
+        /* RESPONSIVE MOBILE */
         @media (max-width: 850px) {
             .geoportail-box {
                 flex-direction: column;
@@ -164,24 +186,37 @@
                 justify-content: center;
             }
         }
+
+        @media (max-width: 768px) {
+            .menu-icon { display: block; font-size: 1.8rem; color: var(--gold-primary); cursor: pointer; }
+            nav { position: absolute; top: 100%; left: 0; width: 100%; background: #0C2A45; border-bottom: 1px solid rgba(197, 160, 89, 0.2); max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; }
+            nav ul { flex-direction: column; padding: 25px 0; gap: 18px; }
+            .menu-toggle:checked ~ nav { max-height: 450px; }
+            .law-card { flex-direction: column; text-align: center; align-items: center; padding: 30px 20px; }
+            .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+        }
     </style>
 </head>
 <body>
 
+    <!-- BARRE DE NAVIGATION COMMUNE AVEC MENU BURGER -->
     <header>
         <div class="container navbar">
             <a href="index.html" class="logo">
                 <img src="images/test logo.png" alt="UpMotion Studio">
             </a>
+
+            <input type="checkbox" id="menu-bar" class="menu-toggle" style="display: none;">
+            <label for="menu-bar" class="menu-icon"><i class="fa-solid fa-bars"></i></label>
+
             <nav>
                 <ul>
-                    <li><a href="index.html" class="active">Accueil</a></li>
-                    <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="index.html">Accueil</a></li>
                     <li><a href="index.html#services">Prestations</a></li>
-                    <li><a href="#materiels">Matériel</a></li>
-                    <li><a href="reglementation.html">Réglementation</a></li>
+                    <li><a href="index.html#materiels">Matériel</a></li>
+                    <li><a href="reglementation.html" class="active">Réglementation</a></li>
                     <li><a href="index.html#tarifs">Tarifs</a></li>
-                    <li><a href="#contact" class="btn-nav">Contact</a></li>
+                    <li><a href="index.html#contact" class="btn-nav">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -189,7 +224,7 @@
 
     <main class="container">
         <h2 class="section-title">Cadre Légal <span>La sécurité et la conformité au cœur de nos vols</span></h2>
-        <p class="intro-text">L'utilisation commerciale de drones est strictement encadrée par la DGAC et la réglementation européenne. UpMotion Studio opère en toute transparence pour garantir la sécurité absolue de vos tournages.</p>
+        <p class="intro-text">L'utilisation commerciale de drones est strictly encadrée par la DGAC et la réglementation européenne. UpMotion Studio opère en toute transparence pour garantir la sécurité absolue de vos tournages.</p>
 
         <div class="law-grid">
             <!-- Bloc 1 : Scénarios de vol -->
@@ -234,6 +269,7 @@
                 </div>
             </div>
         </div>
+
         <!-- BLOC GÉOPORTAIL RESTRICTIONS DRONE -->
         <div class="geoportail-box">
             <div class="geoportail-content">
