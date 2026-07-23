@@ -359,6 +359,8 @@
                 <h3><i class="fa-solid fa-vr-cardboard"></i> Démo Interactive : Visite Virtuelle Intérieure</h3>
                 <p>Cliquez et déplacez votre souris (ou votre doigt sur smartphone) à l'intérieur du panorama pour tester l'expérience immersive.</p>
             </div>
+                   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/virtual-tour-plugin/index.css">
+<script src="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/virtual-tour-plugin/index.js"></script>
             
             <!-- Emplacement du lecteur interactif -->
             <div id="panorama"></div>
@@ -407,13 +409,54 @@
     <!-- LOGIQUE JAVASCRIPT : Lance et gère le panorama 360 -->
     <script>
         // Initialisation de Pannellum avec une image témoin équirectangulaire haute définition
-        pannellum.viewer('panorama', {
-            type: 'equirectangular',
-            panorama: 'https://pannellum.org/images/alma.jpg', /* Image d'exemple officielle à remplacer par vos exports Insta360 */
-            autoLoad: true,
-            compass: true,
-            northOffset: 247
-        });
+ 
+    const viewer = new PhotoSphereViewer.Viewer({
+  container: document.querySelector('#panorama'),
+  loadingImg: 'images/360/keep', // ou ton loader existant
+  plugins: [
+    [PhotoSphereViewer.VirtualTourPlugin, {
+      positionMode: 'manual', // pas besoin de GPS
+      renderMode: 'markers',  // flèches simples entre pièces
+      nodes: [
+        {
+          id: 'salon',
+          panorama: 'images/360/salon.jpeg',
+          name: 'Salon',
+          links: [
+            { nodeId: 'cuisine' },
+            { nodeId: 'couloir' }
+          ]
+        },
+        {
+          id: 'cuisine',
+          panorama: 'images/360/cuisine.jpeg',
+          name: 'Cuisine',
+          links: [
+            { nodeId: 'salon' }
+          ]
+        },
+        {
+          id: 'couloir',
+          panorama: 'images/360/couloir.jpeg',
+          name: 'Couloir',
+          links: [
+            { nodeId: 'salon' },
+            { nodeId: 'chambre' }
+          ]
+        },
+        {
+          id: 'chambre',
+          panorama: 'images/360/chambre.jpeg',
+          name: 'Chambre',
+          links: [
+            { nodeId: 'couloir' }
+          ]
+        }
+      ],
+      startNodeId: 'salon'
+    }]
+  ]
+});
     </script>
 
 </body>
