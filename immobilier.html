@@ -10,10 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
     <!-- FontAwesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Script et Styles essentiels pour la visionneuse 360 Pannellum -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
+    <!-- Photo Sphere Viewer (coeur + dépendance Three.js) + plugin Virtual Tour -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/three/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/virtual-tour-plugin/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/virtual-tour-plugin/index.js"></script>
 
     <style>
         /* ==========================================================================
@@ -199,16 +202,6 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Personnalisation or des éléments de contrôle Pannellum */
-        .pnlm-control {
-            background-color: var(--bg-dark-custom) !important;
-            color: var(--gold-primary) !important;
-            border: 1px solid rgba(197, 160, 89, 0.3) !important;
-        }
-        .pnlm-compass {
-            color: var(--gold-primary) !important;
-        }
-
         /* GRILLE CLASSIQUE DES MÉDIAS IMMOBILIER */
         .gallery-grid {
             display: grid;
@@ -332,7 +325,7 @@
             <a href="index.html" class="logo">
                 <img src="images/test logo.png" alt="UpMotion Studio">
             </a>
-            
+
             <nav>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
@@ -350,25 +343,23 @@
     <main class="container">
         <!-- Lien de retour rapide -->
         <a href="galerie.html" class="back-nav"><i class="fa-solid fa-arrow-left"></i> Retour à la galerie globale</a>
-        
+
         <h2 class="section-title">Immobilier <span>Valorisation de biens & Visites 360°</span></h2>
 
         <!-- VISIONNEUSE INTERACTIVE 360° ACTIVED -->
         <div class="viewer-360-container">
             <div class="viewer-header">
                 <h3><i class="fa-solid fa-vr-cardboard"></i> Démo Interactive : Visite Virtuelle Intérieure</h3>
-                <p>Cliquez et déplacez votre souris (ou votre doigt sur smartphone) à l'intérieur du panorama pour tester l'expérience immersive.</p>
+                <p>Cliquez et déplacez votre souris (ou votre doigt sur smartphone) à l'intérieur du panorama pour tester l'expérience immersive. Cliquez sur les flèches pour passer d'une pièce à l'autre.</p>
             </div>
-                   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/virtual-tour-plugin/index.css">
-<script src="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/virtual-tour-plugin/index.js"></script>
-            
+
             <!-- Emplacement du lecteur interactif -->
             <div id="panorama"></div>
         </div>
 
         <!-- GRILLE COMPLÉMENTAIRE DE PHOTO / VIDÉO CLASSIQUE -->
         <div class="gallery-grid">
-            
+
             <!-- Exemple 1 : Photo de drone classique avec votre image de fond -->
             <div class="gallery-item">
                 <div class="media-container">
@@ -406,57 +397,54 @@
         </div>
     </footer>
 
-    <!-- LOGIQUE JAVASCRIPT : Lance et gère le panorama 360 -->
+    <!-- LOGIQUE JAVASCRIPT : Lance et gère la visite virtuelle 360° multi-pièces -->
     <script>
-        // Initialisation de Pannellum avec une image témoin équirectangulaire haute définition
- 
-    const viewer = new PhotoSphereViewer.Viewer({
-  container: document.querySelector('#panorama'),
-  loadingImg: 'images/360/keep', // ou ton loader existant
-  plugins: [
-    [PhotoSphereViewer.VirtualTourPlugin, {
-      positionMode: 'manual', // pas besoin de GPS
-      renderMode: 'markers',  // flèches simples entre pièces
-      nodes: [
-        {
-          id: 'salon',
-          panorama: 'images/360/salon.jpeg',
-          name: 'Salon',
-          links: [
-            { nodeId: 'cuisine' },
-            { nodeId: 'couloir' }
-          ]
-        },
-        {
-          id: 'cuisine',
-          panorama: 'images/360/cuisine.jpeg',
-          name: 'Cuisine',
-          links: [
-            { nodeId: 'salon' }
-          ]
-        },
-        {
-          id: 'couloir',
-          panorama: 'images/360/couloir.jpeg',
-          name: 'Couloir',
-          links: [
-            { nodeId: 'salon' },
-            { nodeId: 'chambre' }
-          ]
-        },
-        {
-          id: 'chambre',
-          panorama: 'images/360/chambre.jpeg',
-          name: 'Chambre',
-          links: [
-            { nodeId: 'couloir' }
-          ]
-        }
-      ],
-      startNodeId: 'salon'
-    }]
-  ]
-});
+        const viewer = new PhotoSphereViewer.Viewer({
+            container: document.querySelector('#panorama'),
+            plugins: [
+                [PhotoSphereViewer.VirtualTourPlugin, {
+                    positionMode: 'manual', // pas de coordonnées GPS nécessaires
+                    renderMode: 'markers',  // flèches cliquables entre les pièces
+                    nodes: [
+                        {
+                            id: 'salon',
+                            panorama: 'images/360/salon.jpeg',
+                            name: 'Salon',
+                            links: [
+                                { nodeId: 'cuisine' },
+                                { nodeId: 'couloir' }
+                            ]
+                        },
+                        {
+                            id: 'cuisine',
+                            panorama: 'images/360/cuisine.jpeg',
+                            name: 'Cuisine',
+                            links: [
+                                { nodeId: 'salon' }
+                            ]
+                        },
+                        {
+                            id: 'couloir',
+                            panorama: 'images/360/couloir.jpeg',
+                            name: 'Couloir',
+                            links: [
+                                { nodeId: 'salon' },
+                                { nodeId: 'chambre' }
+                            ]
+                        },
+                        {
+                            id: 'chambre',
+                            panorama: 'images/360/chambre.jpeg',
+                            name: 'Chambre',
+                            links: [
+                                { nodeId: 'couloir' }
+                            ]
+                        }
+                    ],
+                    startNodeId: 'salon'
+                }]
+            ]
+        });
     </script>
 
 </body>
