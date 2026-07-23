@@ -11,12 +11,13 @@
     <!-- FontAwesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Photo Sphere Viewer (coeur + dépendance Three.js) + plugin Virtual Tour -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5/index.css">
-<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5/index.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/virtual-tour-plugin@5/index.css">
-<script src="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/virtual-tour-plugin@5/index.js"></script>
+    <!-- Photo Sphere Viewer V5 + Virtual Tour Plugin -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5/index.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/virtual-tour-plugin@5/index.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/virtual-tour-plugin@5/index.min.js"></script>
 
     <style>
         /* ==========================================================================
@@ -110,7 +111,7 @@
             transform: translateX(-5px);
         }
 
-        /* BARRE DE NAVIGATION COMMUNE (Ordre exact demandé) */
+        /* BARRE DE NAVIGATION COMMUNE */
         header {
             background-color: rgba(12, 42, 69, 0.95);
             backdrop-filter: blur(10px);
@@ -197,9 +198,10 @@
 
         #panorama {
             width: 100%;
-            height: 480px; /* Hauteur idéale pour l'immersion */
+            height: 520px; /* Légèrement augmenté pour un confort visuel optimal */
             border-radius: 4px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
         }
 
         /* GRILLE CLASSIQUE DES MÉDIAS IMMOBILIER */
@@ -307,7 +309,7 @@
                 gap: 15px;
             }
             #panorama {
-                height: 350px; /* Plus petit sur mobile */
+                height: 380px;
             }
             .footer-content {
                 flex-direction: column;
@@ -346,11 +348,11 @@
 
         <h2 class="section-title">Immobilier <span>Valorisation de biens & Visites 360°</span></h2>
 
-        <!-- VISIONNEUSE INTERACTIVE 360° ACTIVED -->
+        <!-- VISIONNEUSE INTERACTIVE 360° -->
         <div class="viewer-360-container">
             <div class="viewer-header">
                 <h3><i class="fa-solid fa-vr-cardboard"></i> Démo Interactive : Visite Virtuelle Intérieure</h3>
-                <p>Cliquez et déplacez votre souris (ou votre doigt sur smartphone) à l'intérieur du panorama pour tester l'expérience immersive. Cliquez sur les flèches pour passer d'une pièce à l'autre.</p>
+                <p>Cliquez et déplacez votre souris (ou utilisez deux doigts sur smartphone) à l'intérieur du panorama. Naviguez entre les pièces via les marqueurs interactifs.</p>
             </div>
 
             <!-- Emplacement du lecteur interactif -->
@@ -360,7 +362,6 @@
         <!-- GRILLE COMPLÉMENTAIRE DE PHOTO / VIDÉO CLASSIQUE -->
         <div class="gallery-grid">
 
-            <!-- Exemple 1 : Photo de drone classique avec votre image de fond -->
             <div class="gallery-item">
                 <div class="media-container">
                     <img src="images/fond UM.png" alt="Propriété de prestige vue du ciel">
@@ -371,7 +372,6 @@
                 </div>
             </div>
 
-            <!-- Exemple 2 : Espace prêt pour accueillir une autre réalisation -->
             <div class="gallery-item">
                 <div class="media-container">
                     <img src="images/fond UM.png" alt="Suivi de chantier ou villa contemporaine" style="object-position: right;">
@@ -399,51 +399,56 @@
 
     <!-- LOGIQUE JAVASCRIPT : Lance et gère la visite virtuelle 360° multi-pièces -->
     <script>
-        const viewer = new PhotoSphereViewer.Viewer({
-            container: document.querySelector('#panorama'),
-            plugins: [
-                [PhotoSphereViewer.VirtualTourPlugin, {
-                    positionMode: 'manual', // pas de coordonnées GPS nécessaires
-                    renderMode: 'markers',  // flèches cliquables entre les pièces
-                    nodes: [
-                        {
-                            id: 'salon',
-        panorama: 'images/360/salon.jpeg',
-        name: 'Salon',
-        links: [
-            { nodeId: 'cuisine', position: { yaw: '90deg', pitch: '0deg' } },
-            { nodeId: 'couloir', position: { yaw: '270deg', pitch: '0deg' } }
-                            ]
-                        },
-                        {
-                            id: 'cuisine',
-        panorama: 'images/360/cuisine.jpeg',
-        name: 'Cuisine',
-        links: [
-            { nodeId: 'salon', position: { yaw: '180deg', pitch: '0deg' } }
-                            ]
-                        },
-                        {
-                            id: 'couloir',
-        panorama: 'images/360/couloir.jpeg',
-        name: 'Couloir',
-        links: [
-            { nodeId: 'salon', position: { yaw: '0deg', pitch: '0deg' } },
-            { nodeId: 'chambre', position: { yaw: '180deg', pitch: '0deg' } }
-                            ]
-                        },
-                        {
-                            id: 'chambre',
-        panorama: 'images/360/chambre.jpeg',
-        name: 'Chambre',
-        links: [
-            { nodeId: 'couloir', position: { yaw: '0deg', pitch: '0deg' } }
-                            ]
-                        }
-                    ],
-                    startNodeId: 'salon'
-                }]
-            ]
+        document.addEventListener("DOMContentLoaded", () => {
+            const viewer = new PhotoSphereViewer.Viewer({
+                container: document.querySelector('#panorama'),
+                panorama: 'images/360/salon.jpeg',
+                touchmoveTwoFingers: true, // Améliore la navigation tactile sur smartphone
+                mousewheel: true,
+                plugins: [
+                    [PhotoSphereViewer.VirtualTourPlugin.Plugin, {
+                        positionMode: 'manual',
+                        renderMode: '3d',
+                        nodes: [
+                            {
+                                id: 'salon',
+                                panorama: 'images/360/salon.jpeg',
+                                name: 'Salon',
+                                links: [
+                                    { nodeId: 'cuisine', position: { yaw: '90deg', pitch: '0deg' } },
+                                    { nodeId: 'couloir', position: { yaw: '270deg', pitch: '0deg' } }
+                                ]
+                            },
+                            {
+                                id: 'cuisine',
+                                panorama: 'images/360/cuisine.jpeg',
+                                name: 'Cuisine',
+                                links: [
+                                    { nodeId: 'salon', position: { yaw: '180deg', pitch: '0deg' } }
+                                ]
+                            },
+                            {
+                                id: 'couloir',
+                                panorama: 'images/360/couloir.jpeg',
+                                name: 'Couloir',
+                                links: [
+                                    { nodeId: 'salon', position: { yaw: '0deg', pitch: '0deg' } },
+                                    { nodeId: 'chambre', position: { yaw: '180deg', pitch: '0deg' } }
+                                ]
+                            },
+                            {
+                                id: 'chambre',
+                                panorama: 'images/360/chambre.jpeg',
+                                name: 'Chambre',
+                                links: [
+                                    { nodeId: 'couloir', position: { yaw: '0deg', pitch: '0deg' } }
+                                ]
+                            }
+                        ],
+                        startNodeId: 'salon'
+                    }]
+                ]
+            });
         });
     </script>
 
