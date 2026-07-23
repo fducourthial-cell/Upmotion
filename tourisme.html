@@ -9,12 +9,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* CHARTE GRAPHIQUE UP MOTION (#0C2A45) */
         :root {
-            --bg-dark-custom: #0C2A45; --bg-card-glow: #133759; --gold-primary: #c5a059;
-            --gold-light: #e5cda1; --white-pure: #ffffff; --text-muted: #b2c4d4; --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --bg-dark-custom: #0C2A45; 
+            --bg-card-glow: #133759; 
+            --gold-primary: #c5a059;
+            --gold-light: #e5cda1; 
+            --white-pure: #ffffff; 
+            --text-muted: #b2c4d4; 
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background-color: var(--bg-dark-custom); color: var(--white-pure); line-height: 1.6; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--bg-dark-custom); color: var(--white-pure); line-height: 1.6; overflow-x: hidden; }
         .container { width: 90%; max-width: 1200px; margin: 0 auto; }
         a { text-decoration: none; color: inherit; transition: var(--transition); }
         
@@ -26,38 +33,60 @@
         nav ul li a { font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
         nav ul li a:hover, nav ul li a.active { color: var(--gold-primary); }
         .btn-nav { border: 1px solid var(--gold-primary) !important; color: var(--gold-primary) !important; padding: 10px 20px; border-radius: 4px; }
+        .btn-nav:hover { background-color: var(--gold-primary); color: var(--bg-dark-custom) !important; }
 
-        .section-title { text-align: center; font-size: 2.5rem; margin: 60px 0 20px; font-weight: 700; text-transform: uppercase; }
+        /* MENU BURGER MOBILE */
+        .menu-toggle, .menu-icon { display: none; }
+
+        /* TITRES ET NAVIGATION RETOUR */
+        .section-title { text-align: center; font-size: 2.5rem; margin: 40px 0 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
         .section-title span { color: var(--gold-primary); font-family: 'Playfair Display', serif; text-transform: none; font-style: italic; font-weight: 400; display: block; font-size: 1.8rem; margin-top: 5px; }
         .section-title::after { content: ''; display: block; width: 80px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold-primary), transparent); margin: 20px auto 0; }
 
         .back-nav { margin-bottom: 30px; display: inline-flex; align-items: center; gap: 8px; color: var(--gold-primary); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
         .back-nav:hover { color: var(--white-pure); transform: translateX(-5px); }
 
-        /* GRILLE */
+        /* GRILLE MEDIAS */
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; margin-bottom: 80px; }
         .gallery-item { background: var(--bg-card-glow); border: 1px solid rgba(197, 160, 89, 0.1); border-radius: 6px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: var(--transition); }
-        .gallery-item:hover { transform: translateY(-5px); border-color: var(--gold-primary); }
+        .gallery-item:hover { transform: translateY(-5px); border-color: var(--gold-primary); box-shadow: 0 15px 40px rgba(197, 160, 89, 0.15); }
         .media-container { position: relative; width: 100%; padding-bottom: 56.25%; overflow: hidden; background-color: #000; }
         .media-container img, .media-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
         .item-info { padding: 20px; }
-        .item-info h3 { font-size: 1.15rem; margin-bottom: 8px; font-weight: 600; }
+        .item-info h3 { font-size: 1.15rem; margin-bottom: 8px; font-weight: 600; color: var(--white-pure); }
         .item-info p { color: var(--text-muted); font-size: 0.9rem; font-weight: 300; }
 
-        footer { background-color: #061829; border-top: 1px solid rgba(197, 160, 89, 0.15); color: var(--text-muted); padding: 40px 0; margin-top: 60px; }
+        /* FOOTER */
+        footer { background-color: #061829; border-top: 1px solid rgba(197, 160, 89, 0.15); color: var(--text-muted); padding: 40px 0; margin-top: auto; }
         .footer-content { display: flex; justify-content: space-between; align-items: center; }
         .socials { display: flex; gap: 25px; font-size: 1.4rem; }
+        .socials a { color: var(--text-muted); }
+        .socials a:hover { color: var(--gold-primary); transform: translateY(-3px); }
+
+        /* RESPONSIVE MOBILE & BURGER MENU */
+        @media (max-width: 768px) {
+            .menu-icon { display: block; font-size: 1.8rem; color: var(--gold-primary); cursor: pointer; }
+            nav { position: absolute; top: 100%; left: 0; width: 100%; background: #0C2A45; border-bottom: 1px solid rgba(197, 160, 89, 0.2); max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; }
+            nav ul { flex-direction: column; padding: 25px 0; gap: 18px; }
+            .menu-toggle:checked ~ nav { max-height: 450px; }
+            .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+        }
     </style>
 </head>
 <body>
+
+    <!-- BARRE DE NAVIGATION COMMUNE AVEC MENU BURGER -->
     <header>
         <div class="container navbar">
             <a href="index.html" class="logo"><img src="images/test logo.png" alt="UpMotion Studio"></a>
+            
+            <input type="checkbox" id="menu-bar" class="menu-toggle" style="display: none;">
+            <label for="menu-bar" class="menu-icon"><i class="fa-solid fa-bars"></i></label>
+
             <nav>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
-                    <li><a href="galerie.html">Galerie</a></li>
-                    <li><a href="index.html#services">Prestations</a></li>
+                    <li><a href="index.html#services" class="active">Prestations</a></li>
                     <li><a href="index.html#materiels">Matériel</a></li>
                     <li><a href="reglementation.html">Réglementation</a></li>
                     <li><a href="index.html#contact" class="btn-nav">Contact</a></li>
@@ -66,8 +95,9 @@
         </div>
     </header>
 
+    <!-- CONTENU TOURISME & PATRIMOINE -->
     <main class="container" style="margin-top: 40px;">
-        <a href="galerie.html" class="back-nav"><i class="fa-solid fa-arrow-left"></i> Retour à la galerie globale</a>
+        <a href="index.html#services" class="back-nav"><i class="fa-solid fa-arrow-left"></i> Retour aux prestations</a>
         <h2 class="section-title">Tourisme & Patrimoine <span>Valorisation des territoires régionaux</span></h2>
 
         <div class="gallery-grid">
@@ -81,17 +111,21 @@
                     <p>Survol de précision et captation de l'architecture médiévale — Valorisation Territoriale</p>
                 </div>
             </div>
+            <!-- Vous pourrez ajouter d'autres cartes médias ici -->
         </div>
     </main>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container footer-content">
             <p>&copy; 2026 UpMotion Studio. Tous droits réservés.</p>
             <div class="socials">
-                <a href="https://instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://instagram.com/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://youtube.com/" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="mailto:fducourthial@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
             </div>
         </div>
     </footer>
+
 </body>
 </html>
