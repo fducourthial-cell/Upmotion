@@ -397,60 +397,68 @@
         </div>
     </footer>
 
-    <!-- LOGIQUE JAVASCRIPT : Lance et gère la visite virtuelle 360° multi-pièces -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const viewer = new PhotoSphereViewer.Viewer({
-                container: document.querySelector('#panorama'),
-                panorama: 'images/360/salon.jpeg',
-                touchmoveTwoFingers: true, // Améliore la navigation tactile sur smartphone
-                mousewheel: true,
-                plugins: [
-                    [PhotoSphereViewer.VirtualTourPlugin.Plugin, {
-                        positionMode: 'manual',
-                        renderMode: '3d',
-                        nodes: [
-                            {
-                                id: 'salon',
-                                panorama: 'images/360/salon.jpeg',
-                                name: 'Salon',
-                                links: [
-                                    { nodeId: 'cuisine', position: { yaw: '90deg', pitch: '0deg' } },
-                                    { nodeId: 'couloir', position: { yaw: '270deg', pitch: '0deg' } }
-                                ]
-                            },
-                            {
-                                id: 'cuisine',
-                                panorama: 'images/360/cuisine.jpeg',
-                                name: 'Cuisine',
-                                links: [
-                                    { nodeId: 'salon', position: { yaw: '180deg', pitch: '0deg' } }
-                                ]
-                            },
-                            {
-                                id: 'couloir',
-                                panorama: 'images/360/couloir.jpeg',
-                                name: 'Couloir',
-                                links: [
-                                    { nodeId: 'salon', position: { yaw: '0deg', pitch: '0deg' } },
-                                    { nodeId: 'chambre', position: { yaw: '180deg', pitch: '0deg' } }
-                                ]
-                            },
-                            {
-                                id: 'chambre',
-                                panorama: 'images/360/chambre.jpeg',
-                                name: 'Chambre',
-                                links: [
-                                    { nodeId: 'couloir', position: { yaw: '0deg', pitch: '0deg' } }
-                                ]
-                            }
-                        ],
-                        startNodeId: 'salon'
-                    }]
-                ]
-            });
+   <!-- LOGIQUE JAVASCRIPT : Visite virtuelle 360° -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Sécurité : Vérification que le plugin est bien chargé
+        const VirtualTour = PhotoSphereViewer.VirtualTourPlugin;
+
+        if (!VirtualTour) {
+            console.error("Le plugin Virtual Tour n'a pas pu être chargé.");
+            return;
+        }
+
+        const viewer = new PhotoSphereViewer.Viewer({
+            container: document.querySelector('#panorama'),
+            panorama: 'images/360/salon.jpeg',
+            touchmoveTwoFingers: true,
+            mousewheel: true,
+            plugins: [
+                [VirtualTour, {
+                    positionMode: 'manual',
+                    renderMode: '3d',
+                    nodes: [
+                        {
+                            id: 'salon',
+                            panorama: 'images/360/salon.jpeg',
+                            name: 'Salon',
+                            links: [
+                                { nodeId: 'cuisine', position: { yaw: '90deg', pitch: '0deg' } },
+                                { nodeId: 'couloir', position: { yaw: '270deg', pitch: '0deg' } }
+                            ]
+                        },
+                        {
+                            id: 'cuisine',
+                            panorama: 'images/360/cuisine.jpeg',
+                            name: 'Cuisine',
+                            links: [
+                                { nodeId: 'salon', position: { yaw: '180deg', pitch: '0deg' } }
+                            ]
+                        },
+                        {
+                            id: 'couloir',
+                            panorama: 'images/360/couloir.jpeg',
+                            name: 'Couloir',
+                            links: [
+                                { nodeId: 'salon', position: { yaw: '0deg', pitch: '0deg' } },
+                                { nodeId: 'chambre', position: { yaw: '180deg', pitch: '0deg' } }
+                            ]
+                        },
+                        {
+                            id: 'chambre',
+                            panorama: 'images/360/chambre.jpeg',
+                            name: 'Chambre',
+                            links: [
+                                { nodeId: 'couloir', position: { yaw: '0deg', pitch: '0deg' } }
+                            ]
+                        }
+                    ],
+                    startNodeId: 'salon'
+                }]
+            ]
         });
-    </script>
+    });
+</script>
 
 </body>
 </html>
